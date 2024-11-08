@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts and Crafts Hub | Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+<body>
+
+
+
+    <div class="form-container">
+        <h1><b>The Arts and Crafts Hub</b></h1>
+        <p><b>Sign up</b></p>
+        <form onsubmit="formvalidate(event)">
+            <input type="text" id="firstName" placeholder="Enter First Name"><br>
+            <input type="text" id="lastName" placeholder="Enter Last Name"><br>
+            <input type="email" id="email" placeholder="Enter Email"><br>
+            <input type="password" id="password" placeholder="New Password"><br>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password"><br>
+
+            <!-- Error Message Container -->
+            <div id="passwordError" style="color: red;"></div>
+            <div id="successMessage" style="color: green;"></div>
+
+            <button type="submit"><b>Sign up</b></button><br><br>
+            <p>Already have an account? <a href="login.html".html"><b>Sign in</b></a></p>
+        </form>
+    </div>
+
+    <script>
+        function formvalidate(event) {
+            event.preventDefault(); // Prevent form submission
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var errorMessages = [];
+            var passwordError = document.getElementById("passwordError");
+            var successMessage = document.getElementById("successMessage");
+
+            // Clear previous error/success messages
+            passwordError.textContent = "";
+            successMessage.textContent = "";
+
+            // Email validation (only Ashesi domain emails allowed)
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
+            if (email === "") {
+                errorMessages.push("Email is required!");
+            } else if (!emailPattern.test(email)) {
+                errorMessages.push("Invalid email format");
+            }
+
+            // Password validation
+            if (password.length < 8) {
+                errorMessages.push("Password must be at least 8 characters!");
+            }
+
+            if (!/[A-Z]/.test(password)) {
+                errorMessages.push("Password must contain at least one uppercase letter!");
+            }
+
+            if ((password.match(/\d/g) || []).length < 3) {
+                errorMessages.push("Password must include at least three digits!");
+            }
+
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                errorMessages.push("Password must contain at least one special character!");
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                errorMessages.push("Passwords don't match");
+            }
+
+            // Display error messages or success message
+            if (errorMessages.length > 0) {
+                passwordError.innerHTML = errorMessages.join("<br>");
+            } else {
+                successMessage.textContent = "Registered successfully!";
+                setTimeout(function () {
+                    successMessage.textContent = ""; // Clear success message after 20 seconds
+                }, 20000);
+
+                // Clear form fields after successful submission
+                document.getElementById("firstName").value = "";
+                document.getElementById("lastName").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+                document.getElementById("confirmPassword").value = "";
+            }
+        }
+    </script>
+</body>
+</html>

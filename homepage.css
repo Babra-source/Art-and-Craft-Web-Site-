@@ -1,0 +1,128 @@
+/* General body styling */
+body {
+    font-family: 'Perpetua', serif; /* Corrected the font-family syntax */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+    background-image: url("proArt1.jpg");
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; /* Optional: Keeps the background fixed during scroll */
+    display: flex;
+    flex-direction: column; /* Adds flex-direction to avoid container issues */
+    min-height: 100vh; /* Ensures full height of the page */
+    position: relative; /* Ensures child elements with absolute positioning behave as expected */
+}
+
+/* Styling for the header and navigation */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(244, 244, 244, 0.8);
+    border-bottom: 2px solid #ccc;
+    width: 100%; 
+    box-sizing: border-box; /* Ensures the header doesn't overflow */
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none; /* Ensure no underline on links */
+    font-size: 18px;
+    color: #3e8e41;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #3e8e41;
+    color: white;
+}
+
+/* Styling for the main heading and description */
+h1 {
+    font-size: 40px;
+    color: #070707;
+}
+
+p {
+    font-size: 22px;
+    color: #050505;
+    margin-top: 10px;
+    font-family: 'Perpetua', serif;
+}
+
+/* Quote section styling */
+.quote-section {
+    position: absolute;          
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Perpetua', serif;
+}
+
+/* Writing Section Styling */
+.writing-section {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Perpetua', serif;
+    font-size: 20px;
+}
+
+.writing-section h2 {
+    font-size: 40px;
+    color: black;
+    font-family: 'Perpetua', serif;
+}
+
+.writing-section p {
+    font-size: 22px;
+    color: black;
+    font-family: 'Perpetua', serif;
+}
+
+/* Button styling */
+.getStarbtn {
+    background-color: rgba(87, 206, 64, 0.8);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 20px auto;
+    text-decoration: none; 
+}
+
+.getStarbtn:hover {
+    background-color: #0cf575;
+}

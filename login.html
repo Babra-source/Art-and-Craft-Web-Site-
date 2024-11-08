@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts and Crafts Hub | Login</title>
+    <link rel="stylesheet" href="signup.css"> 
+</head>
+<body>
+
+    
+
+    <div class="form-container">
+        <h1><b>The Arts and Crafts Hub</b></h1>
+        <p><b>Login</b></p>
+        <form onsubmit="loginvalidate(event)">
+            <input type="email" id="email" placeholder="Enter Email" required><br>
+            <input type="password" id="password" placeholder="Enter Password" required><br>
+
+            <!-- Error Message Container -->
+            <div id="loginError" style="color: red;"></div>
+            <div id="loginSuccess" style="color: green;"></div>
+
+            <button type="submit"><b>Login</b></button><br><br>
+            <p>Don't have an account? <a href="signup.html"><b>Sign up</b></a></p>
+        </form>
+    </div>
+
+    <script>
+        function loginvalidate(event) {
+            event.preventDefault(); 
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var loginError = document.getElementById("loginError");
+            var loginSuccess = document.getElementById("loginSuccess");
+
+            // Clear previous error/success messages
+            loginError.textContent = "";
+            loginSuccess.textContent = "";
+
+            // Check if both email and password are entered
+            if (email === "" || password === "") {
+                loginError.textContent = "Both fields are required!";
+                return;
+            }
+
+            // Basic success message (you could add actual authentication logic here)
+            loginSuccess.textContent = "Login successful!";
+            setTimeout(function () {
+                loginSuccess.textContent = ""; // Clear success message after 5 seconds
+            }, 5000);
+
+            // Clear form fields after successful login
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+
+</body>
+</html>
