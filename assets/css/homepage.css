@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #f0f8ff;
     color: #333;
-    background-image: url("proArt1.jpg");
+    background-image: url("/assets/images/proArt1.jpg");
     background-size: cover; 
     background-position: center;
     background-attachment: fixed; /* Optional: Keeps the background fixed during scroll */
