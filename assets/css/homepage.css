@@ -1,128 +1,206 @@
-/* General body styling */
+/* General Styles */
 body {
-    font-family: 'Perpetua', serif; /* Corrected the font-family syntax */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
-    color: #333;
-    background-image: url("/assets/images/proArt1.jpg");
-    background-size: cover; 
-    background-position: center;
-    background-attachment: fixed; /* Optional: Keeps the background fixed during scroll */
+    background-image: url("assets/images/proArt1.jpg");
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Adds flex-direction to avoid container issues */
-    min-height: 100vh; /* Ensures full height of the page */
-    position: relative; /* Ensures child elements with absolute positioning behave as expected */
+    flex-direction: column;
 }
 
-/* Styling for the header and navigation */
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(244, 244, 244, 0.8);
-    border-bottom: 2px solid #ccc;
-    width: 100%; 
-    box-sizing: border-box; /* Ensures the header doesn't overflow */
+/* Header Styles */
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav {
-    margin-top: 15px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none; /* Ensure no underline on links */
-    font-size: 18px;
-    color: #3e8e41;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background-color: #3e8e41;
-    color: white;
-}
-
-/* Styling for the main heading and description */
-h1 {
-    font-size: 40px;
-    color: #070707;
-}
-
-p {
-    font-size: 22px;
-    color: #050505;
-    margin-top: 10px;
-    font-family: 'Perpetua', serif;
-}
-
-/* Quote section styling */
-.quote-section {
-    position: absolute;          
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0;
-    font-size: 30px;
-    padding: 10px;
-    color: black;
+.header-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 2rem;
     font-weight: bold;
-    font-family: 'Perpetua', serif;
+    color: #000009;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Writing Section Styling */
-.writing-section {
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #6B6B6B;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4B0082;
+}
+
+/* Main Content Styles */
+.main {
+    flex-grow: 1;
+}
+
+.hero-section {
+    padding: 4rem 0;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    color: black;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Perpetua', serif;
-    font-size: 20px;
+    padding: 0 1.5rem;
 }
 
-.writing-section h2 {
-    font-size: 40px;
-    color: black;
-    font-family: 'Perpetua', serif;
+.hero-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #000009;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
 }
 
-.writing-section p {
-    font-size: 22px;
-    color: black;
-    font-family: 'Perpetua', serif;
+.hero-description {
+    font-size: 1.5rem;
+    color: #000009;
+    margin-bottom: 2rem;
 }
 
-/* Button styling */
-.getStarbtn {
-    background-color: rgba(87, 206, 64, 0.8);
+.card-grid {
+    padding-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #000009;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    color: #6B6B6B;
+    font-size: 1.125rem;
+}
+
+.about-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 4rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.about-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 3rem;
+    font-weight: bold;
     color: black;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+}
+
+.about-description {
+    color: black;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: black;
+    color: #FFFFFF;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin: 20px auto;
-    text-decoration: none; 
 }
 
-.getStarbtn:hover {
-    background-color: #0cf575;
+.cta-button:hover {
+    background-color: #6B3FA0;
+}
+
+/* Footer Styles */
+.footer {
+    background-image: linear-gradient(to right,  black, black );
+
+    color: #FFFFFF;
+    padding: 1.5rem 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.copyright {
+    font-size: 0.875rem;
+}
+
+.quote {
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: right;
+    margin: 0;
+}
+
+.quote-text {
+    margin-bottom: 0.5rem;
+}
+
+.quote-author {
+    font-size: 1rem;
+    font-style: italic;
 }
