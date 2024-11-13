@@ -13,83 +13,80 @@
         <h1><b>The Arts and Crafts Hub</b></h1>
 
         <p><b>Sign up</b></p>
-        <form onsubmit="formvalidate(event)">
-            <input type="text" id="firstName" placeholder="Enter First Name"><br>
-            <input type="text" id="lastName" placeholder="Enter Last Name"><br>
-            <input type="email" id="email" placeholder="Enter Email"><br>
-            <input type="password" id="password" placeholder="New Password"><br>
-            <input type="password" id="confirmPassword" placeholder="Confirm Password"><br>
+        <form action="actions/register_process.php" method = "post" onsubmit= "return validateForm()">
+        <input type="text" id="firstName" name="firstname" placeholder="Enter First Name"><br>
+        <input type="text" id="lastName" name="lastname" placeholder="Enter Last Name"><br>
+        <input type="email" id="email" name="email" placeholder="Enter Email"><br>
+        <input type="password" id="password" name="password" placeholder="New Password"><br>
+        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password"><br>
+
 
             <!-- Error Message Container -->
             <div id="passwordError" style="color: red;"></div>
             <div id="successMessage" style="color: green;"></div>
 
-            <button type="submit"><b>Sign up</b></button><br><br>
+            <button type="submit"  onclick="validateForm()"><b>Sign up</b></button><br><br>
             <p>Already have an account? <a href="login.html"><b>Sign in</b></a></p>
         </form>
     </div>
 
     <script>
-        function formvalidate(event) {
-            event.preventDefault(); // Prevent form submission
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            var errorMessages = [];
-            var passwordError = document.getElementById("passwordError");
-            var successMessage = document.getElementById("successMessage");
-
-            // Clear previous error/success messages
-            passwordError.textContent = "";
-            successMessage.textContent = "";
-
-            // Email validation (only Ashesi domain emails allowed)
-            var emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
-            if (email === "") {
-                errorMessages.push("Email is required!");
-            } else if (!emailPattern.test(email)) {
-                errorMessages.push("Invalid email format");
-            }
-
-            // Password validation
-            if (password.length < 8) {
-                errorMessages.push("Password must be at least 8 characters!");
-            }
-
-            if (!/[A-Z]/.test(password)) {
-                errorMessages.push("Password must contain at least one uppercase letter!");
-            }
-
-            if ((password.match(/\d/g) || []).length < 3) {
-                errorMessages.push("Password must include at least three digits!");
-            }
-
-            if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-                errorMessages.push("Password must contain at least one special character!");
-            }
-
-            // Confirm password validation
-            if (password !== confirmPassword) {
-                errorMessages.push("Passwords don't match");
-            }
-
-            // Display error messages or success message
-            if (errorMessages.length > 0) {
-                passwordError.innerHTML = errorMessages.join("<br>");
-            } else {
-                successMessage.textContent = "Registered successfully!";
-                setTimeout(function () {
-                    successMessage.textContent = ""; // Clear success message after 20 seconds
-                }, 20000);
-
-                // Clear form fields after successful submission
-                document.getElementById("firstName").value = "";
-                document.getElementById("lastName").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("password").value = "";
-                document.getElementById("confirmPassword").value = "";
-            }
+    function validateForm() {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirm_password").value.trim();
+        const errorMessages = [];
+        const passwordError = document.getElementById("passwordError");
+        const successMessage = document.getElementById("successMessage");
+    
+        // Clear previous messages
+        passwordError.innerHTML = "";
+        successMessage.textContent = "";
+    
+        // Email pattern for Ashesi emails
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
+    
+        // Email validation
+        if (email === "") {
+            errorMessages.push("Email is required!");
+        } else if (!emailPattern.test(email)) {
+            errorMessages.push("Invalid email format. Use @ashesi.edu.gh domain.");
         }
+    
+        // Password validations
+        if (password.length < 8) {
+            errorMessages.push("Password must be at least 8 characters long!");
+        }
+        if (!/[A-Z]/.test(password)) {
+            errorMessages.push("Password must contain at least one uppercase letter!");
+        }
+        if ((password.match(/\d/g) || []).length < 3) {
+            errorMessages.push("Password must include at least three digits!");
+        }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            errorMessages.push("Password must contain at least one special character!");
+        }
+    
+        // Confirm password match check
+        if (password !== confirmPassword) {
+            errorMessages.push("Passwords do not match.");
+        }
+    
+        // Show errors or success message
+        if (errorMessages.length > 0) {
+            passwordError.innerHTML = errorMessages.join("<br>");
+            return false; // Prevent form submission if there are errors
+        } else {
+            successMessage.textContent = "Registered successfully!";
+            setTimeout(function () {
+                successMessage.textContent = ""; // Clear success message after 20 seconds
+            }, 20000);
+    
+            return true; // Allow form submission if no errors
+        }
+    }
     </script>
+    
 </body>
 </html>
+
