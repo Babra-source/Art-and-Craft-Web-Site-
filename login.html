@@ -13,15 +13,15 @@
     <div class="form-container">
         <h1><b>The Arts and Crafts Hub.</b></h1>
         <p><b>Login</b></p>
-        <form onsubmit="loginvalidate(event)">
-            <input type="email" id="email" placeholder="Enter Email" required><br>
-            <input type="password" id="password" placeholder="Enter Password" required><br>
+        <form action="/actions/login_user.php" method = "post" onsubmit= "return formvalidate()">
+            <input type="email" id="email" placeholder="Enter Email"  name = "email"  required><br>
+            <input type="password" id="password" placeholder="Enter Password" name = "password" required><br>
 
             <!-- Error Message Container -->
             <div id="loginError" style="color: red;"></div>
             <div id="loginSuccess" style="color: green;"></div>
 
-            <button type="submit"><b>Login</b></button><br><br>
+            <button type="submit"  onclick="formvalidate()"><b>Login</b></button><br><br>
             <p>Don't have an account? <a href="signup.html"><b>Sign up</b></a></p>
         </form>
     </div>
