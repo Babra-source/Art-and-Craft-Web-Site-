@@ -1,7 +1,7 @@
 -- Switch to the desired database
-DROP DATABASE IF EXISTS Artdb;
-CREATE DATABASE Artdb;
-USE Artdb;  -- Replace with your actual database name
+DROP DATABASE IF EXISTS artdb;
+CREATE DATABASE artdb;
+USE artdb;  -- Replace with your actual database name
 
 -- Users Table
 CREATE TABLE `users` (
@@ -57,3 +57,15 @@ CREATE TABLE `Comments` (
     FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
     FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
 );
+
+
+-- --added
+-- CREATE TABLE Artworks (
+--     'artwork_id' INT AUTO_INCREMENT PRIMARY KEY,
+--     'title' VARCHAR(255) NOT NULL,
+--     'artist' VARCHAR(255) NOT NULL,
+--     'description' TEXT,
+--     'image_url' VARCHAR(255) NOT NULL,
+--     'rating' TINYINT CHECK (rating BETWEEN 1 AND 5),
+--     'date_added' TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
