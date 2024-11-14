@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['role'] = $user['role']; // Assuming you store user role as well
 
             // Redirect to the user's dashboard or home page
-            header('Location: ../dashboard.html'); // Modify this URL to the page you want to redirect to
+            echo "Session fname: " . $_SESSION['fname'];
+            header('Location: ../dashboard.php'); // Modify this URL to the page you want to redirect to
 
         } else {
             header('Location: ../login.html');
