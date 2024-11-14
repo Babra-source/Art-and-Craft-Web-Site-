@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file to connect to the database
-include 'db\config.php';
+include '../db/config.php';
 
 
 error_reporting(E_ALL);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo '<script>alert("Incorrect password. Please try again.");</script>';
         }
     } else {
-        header('Location: Login.php'); 
+        header('Location: login.html'); 
     }
 
     // Close the statement after execution

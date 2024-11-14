@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts Hub | Login</title>
-    <link rel="stylesheet" href="/assets/css/signup.css"> 
+    <link rel="stylesheet" href="assets/css/signup.css"> 
 </head>
-<body>
+<body style = "background-image: url('assets/images/proArt1.jpg')">
 
     
 
     <div class="form-container">
         <h1><b>The Arts and Crafts Hub.</b></h1>
         <p><b>Login</b></p>
-        <form action="/actions/login_user.php" method = "post" onsubmit= "return formvalidate()">
+        <form action="actions/login_user.php" method = "post" onsubmit = "return loginvalidate()">
             <input type="email" id="email" placeholder="Enter Email"  name = "email"  required><br>
             <input type="password" id="password" placeholder="Enter Password" name = "password" required><br>
 
@@ -27,7 +27,7 @@
     </div>
 
     <script>
-        function loginvalidate(event) {
+        function loginvalidate() {
             event.preventDefault(); 
 
             var email = document.getElementById("email").value;
