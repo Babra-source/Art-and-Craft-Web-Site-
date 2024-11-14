@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Execute the statement and check if it was successful
         if ($stmt->execute()) {
-            header('Location: login.html'); // Redirect to the login page if successful
+            header('Location: ../login.html'); // Redirect to the login page if successful
         } else {
             header('Location: signUp.html'); 
         }

@@ -13,9 +13,10 @@
     <div class="form-container">
         <h1><b>The Arts and Crafts Hub.</b></h1>
         <p><b>Login</b></p>
-        <form action="actions/login_user.php" method = "post" onsubmit = "return loginvalidate()">
+        <form action="actions/login_user.php" method = "post">
             <input type="email" id="email" placeholder="Enter Email"  name = "email"  required><br>
             <input type="password" id="password" placeholder="Enter Password" name = "password" required><br>
+            <span id="passwordError" style="color:rgb(255, 3, 3);"></span><br><br>
 
             <!-- Error Message Container -->
             <div id="loginError" style="color: red;"></div>
@@ -27,35 +28,48 @@
     </div>
 
     <script>
-        function loginvalidate() {
-            event.preventDefault(); 
+           function formvalidate() {
+           
+           var email = document.getElementById("email").value;
+           var password = document.getElementById("password").value;
+           var errorMessages = [];
+           var passwordError = document.getElementById("passwordError");
 
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var loginError = document.getElementById("loginError");
-            var loginSuccess = document.getElementById("loginSuccess");
+           passwordError.textContent = "";
 
-            // Clear previous error/success messages
-            loginError.textContent = "";
-            loginSuccess.textContent = "";
+           
+           var emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
+           if (email === "") {
+               errorMessages.push("Email is required!");
+           } else if (!emailPattern.test(email)) {
+               errorMessages.push("Invalid email format");
+           }
 
-            // Check if both email and password are entered
-            if (email === "" || password === "") {
-                loginError.textContent = "Both fields are required!";
-                return;
-            }
+           
+           if (password.length < 8) {
+               errorMessages.push("Password must be at least 8 characters!");
+           }
+           if (!/[A-Z]/.test(password)) {
+               errorMessages.push("Password must contain at least one uppercase letter!");
+           }
+           if ((password.match(/\d/g) || []).length < 3) {
+               errorMessages.push("Password must include at least three digits!");
+           }
+           if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+               errorMessages.push("Password must contain at least one special character!");
+           }
 
-            // Basic success message (you could add actual authentication logic here)
-            loginSuccess.textContent = "Login successful!";
-            setTimeout(function () {
-                loginSuccess.textContent = ""; // Clear success message after 5 seconds
-            }, 5000);
-
-            // Clear form fields after successful login
-            document.getElementById("email").value = "";
-            document.getElementById("password").value = "";
-        }
-    </script>
+         
+           if (errorMessages.length > 0) {
+               passwordError.innerHTML = errorMessages.join("<br>");
+           } else {
+               
+               document.getElementById("loginForm").submit();
+               document.getElementById("email").value = "";
+               document.getElementById("password").value = "";
+           }
+       }
+       </script>
 
 </body>
 </html>

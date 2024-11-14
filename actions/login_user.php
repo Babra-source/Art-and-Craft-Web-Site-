@@ -39,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['role'] = $user['role']; // Assuming you store user role as well
 
             // Redirect to the user's dashboard or home page
-            header('Location: Homepage.html'); // Modify this URL to the page you want to redirect to
+            header('Location: ../dashboard.html'); // Modify this URL to the page you want to redirect to
 
         } else {
-            echo '<script>alert("Incorrect password. Please try again.");</script>';
+            header('Location: ../login.html');
         }
     } else {
         header('Location: login.html'); 
