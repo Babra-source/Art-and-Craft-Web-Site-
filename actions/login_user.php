@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Redirect to the user's dashboard or home page
             echo "Session fname: " . $_SESSION['fname'];
-            header('Location: ../dashboard.php'); // Modify this URL to the page you want to redirect to
+            header('Location: ../showcase.php'); // Modify this URL to the page you want to redirect to
 
         } else {
             header('Location: ../login.html');

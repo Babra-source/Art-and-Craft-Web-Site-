@@ -22,7 +22,7 @@
             <div id="loginError" style="color: red;"></div>
             <div id="loginSuccess" style="color: green;"></div>
 
-            <button type="submit"  onclick="formvalidate()"><b>Login</b></button><br><br>
+            <button type=submit onsubmit= "return formvalidate() "><b>Login</b></button><br><br>
             <p>Don't have an account? <a href="signup.html"><b>Sign up</b></a></p>
         </form>
     </div>

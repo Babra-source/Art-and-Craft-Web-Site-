@@ -45,7 +45,7 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
           <li><a href="showcase.html">Showcase</a></li>
           <li><a href="connect.html">Connect</a></li>
           <li><a href="contacts.html">Contacts</a></li>
-          <li><a href="login.html">Logout</a></li>
+          <li><a href="login.php">Logout</a></li>
         </ul>
       </nav>
     </div>
