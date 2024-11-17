@@ -37,10 +37,25 @@
     <div class="sidebar">
         <a><img src="assets/images/home.png" alt="home"> Home</a>
         <a href="view/dashboard.php"><img src="assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
-        <a href="view/creatorshub.php"><img src="assets/images/" alt="Showcase"> Creator Hub</a>
-        <a href="view/contacts"><img src="recipe.png" alt="Recipe icon"> Showcase reel</a>
-        <a href="view/contacts.php"><img src="../assets/images/about.png" alt="About icon"> Contacts</a>
+        <a href="view/Post.php"><img src="assets/images/post.png" alt="dashboard"> Make Your Post</a>
+        <a href="view/creatorshub.php"><img src="assets/images/reel.png" alt="Showcase"> Creator Hub</a>
+        <a href="view/showcase.php"><img src="recipe.png" alt="Recipe icon"> Reel</a>
+        <a href="view/contacts.php"><img src="assets/images/feedback.png" alt="About icon"> Contacts</a>
     </div>
+
+    <!-- <form action="post_proc.php" method="POST" enctype="multipart/form-data">
+    <label for="artTitle">Art Title</label>
+    <input type="text" id="artTitle" name="artTitle" required><br>
+
+    <label for="artDescription">Art Description</label>
+    <textarea id="artDescription" name="artDescription" required></textarea><br>
+
+    <label for="artImage">Art Image</label>
+    <input type="file" id="artImage" name="artImage" accept="image/*" required><br>
+
+    <button type="submit">Post Art</button>
+    </form> -->
+
 
       <!-- Main Content -->
       <div class="content">
@@ -59,8 +74,10 @@
                 <div class="comments-section">
                     <h4>Comments</h4>
                     <!-- Comment Input -->
-                    <textarea id="comment-input" placeholder="Add a comment..."></textarea>
-                    <button class="add-comment-btn">Post</button>
+                    <form action="actions/comment_proc.php" method="POST">
+                        <textarea id="comment-input"name = "comment" placeholder="Add a comment..."></textarea>
+                        <button type ="submit" class="add-comment-btn">Post</button>
+                    </form>
 
                     <!-- Comment List -->
                     <div id="comment-list">
@@ -77,6 +94,24 @@
         </div>
     </div>
 </div>
+
+
+
+    <!-- Right Sidebar for Recent Posts -->
+    <div class="right-sidebar">
+        <div class="recent-posts">
+            <h3>Recent Posts</h3>
+            <div class="post">
+                <img src="assets/images/art1.jpg" alt="Post Image">
+                <p>Post description or title here</p>
+            </div>
+            <div class="post">
+                <img src="assets/images/art2.jpg" alt="Post Image">
+                <p>Post description or title here</p>
+            </div>
+            <!-- Add more posts here -->
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
