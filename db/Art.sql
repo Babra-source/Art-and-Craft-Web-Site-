@@ -46,7 +46,6 @@ CREATE TABLE `Artwork` (
 -- );
 
 
-
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
