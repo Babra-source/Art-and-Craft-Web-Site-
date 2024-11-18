@@ -45,18 +45,6 @@ CREATE TABLE `Marketplace` (
     FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
 );
 
--- Comments/Reviews Table
-CREATE TABLE `Comments` (
-    `comment_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
-    `artwork_id` INT NOT NULL,
-    `rating` INT CHECK (rating BETWEEN 1 AND 5),  -- Ensure rating is between 1 and 5
-    `comment_text` TEXT,
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
-    FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
-);
 
 
 
