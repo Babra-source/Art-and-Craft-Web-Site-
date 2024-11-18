@@ -1,14 +1,15 @@
 <?php
 
+ob_start();
+include '../db/config.php';  // Change the backslash to a forward slash
 
-// Include the database configuration file to connect to the database
-include 'db\config.php';
+
 
 // Enable error reporting to display errors for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Check if the form was submitted using the POST method
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Collect and trim form data to remove unnecessary whitespace
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the email already exists in the database
     if ($results->num_rows > 0) {
         echo '<script>alert("User already registered.");</script>';
-        echo '<script>window.location.href = "register.html";</script>';
+        echo '<script>window.location.href = "signup.html";</script>';
     } else {
         // Hash the password for security before storing it in the database
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -46,13 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Prepare an INSERT statement to add the new user to the database
         $sql = "INSERT INTO users (fname, lname, email, password, role, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
         $stmt = $conn->prepare($sql);
-        $role = 2; // Set initial user role to 2 (regular admin)
+        $role = 2; // Artisans and Viewers
                // Corrected the bind_param variables to match the prepared statement parameters
         $stmt->bind_param('ssssi', $fname, $lname, $email, $hashed_password, $role);
 
         // Execute the statement and check if it was successful
         if ($stmt->execute()) {
-            header('Location: login.html'); // Redirect to the login page if successful
+            $_SESSION['fname'] = $firstName;
+            header('Location: ../login.php'); // Redirect to the login page if successful
         } else {
             header('Location: signUp.html'); 
         }

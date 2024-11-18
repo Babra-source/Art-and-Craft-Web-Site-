@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file to connect to the database
-include 'db\config.php';
+include '../db/config.php';
 
 
 error_reporting(E_ALL);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Prepare a statement to check if the email exists in the database
-    $stmt = $conn->prepare('SELECT `user_id`, `email`, `password`, `role` FROM  `users` WHERE `email` = ?');
+    $stmt = $conn->prepare('SELECT `user_id`, `fname`, `email`, `password`, `role` FROM  `users` WHERE `email` = ?');
     $stmt->bind_param('s', $email); // Bind the email parameter to the query
     $stmt->execute(); // Execute the query
     $results = $stmt->get_result(); // Get the result of the query
@@ -36,16 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Store user data in session variables
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role']; // Assuming you store user role as well
+            $_SESSION['role'] = $user['role']; 
+            $_SESSION['firstname'] = $user['fname']; 
 
             // Redirect to the user's dashboard or home page
-            header('Location: Homepage.html'); // Modify this URL to the page you want to redirect to
+            echo "Session fname: " . $_SESSION['fname'];
+            header('Location: ../showcase.php'); // Modify this URL to the page you want to redirect to
 
         } else {
-            echo '<script>alert("Incorrect password. Please try again.");</script>';
+            header('Location: ../login.html');
         }
     } else {
-        header('Location: Login.php'); 
+        header('Location: login.html'); 
     }
 
     // Close the statement after execution

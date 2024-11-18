@@ -9,11 +9,7 @@ html, body {
     background: url(/assets/images/proArt1.jpg);
 }
 
-section {
-    width: 100%;
-    min-height: 100vh;
-    background: #F7F1E3; /* Light background color for fallback */
-}
+
 
 header {
     position: fixed;
@@ -53,54 +49,48 @@ nav ul li a {
     font-size: 1rem;
 }
 
-
-.landing {
-    position: relative;
-    margin-top: 150px;
-    text-align: center;
-    z-index: 1;
-    background-image: url('landing.jpg'); /*background image*/
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
-    color: black; /* Ensure the text in the landing section is black */
+.sidebar {
+    position: static;
+    margin-top: 20%;
+    width: 15%;
+    position: absolute;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    border-color: black;
+    overflow: auto;
+    font-size: 20px;
+    left: 0;
 }
 
-.landing h1.slogan {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+.sidebar a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
 }
 
-.landing p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
-}
-
-.landing ul {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.landing ul li {
-    font-size: 1.2rem;
+.sidebar a {
+    display: block;
+    /* border: 1px solid black; */
     margin-bottom: 10px;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.landing ul li strong {
-    color: black; /* Make the list text black by default */
+button {
+    margin-right: 5px; 
+    display: inline-block; 
 }
 
-/* New lilac-colored text for specific elements */
-.lilac-text {
-    color: #C8A2C8; /* Lilac color */
+.sidebar a:hover {
+    background-color: white;
+    color: black;
+}
+
+.sidebar a {
+
+    text-decoration: none; /* Removes underline from links */
+    color: black; /* Sets link color */
+    display: block; /* Ensures the links take full width */
+    border-bottom: 1px solid black; /* Adds a line under each link */
 }
 
 
@@ -271,7 +261,6 @@ body {
     height: 90vh; /* Full viewport height */
     margin: 0; /* Remove default margin */
     background-size: 1500px;
-    background-color: #9F77A5;
 }
 
 .wrapper {
@@ -280,7 +269,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     background-color: #cacad0; 
     border-radius: 10px; /* Add rounded corners */
-    margin-top: 60;
+    
 }
 
 
@@ -348,4 +337,140 @@ body {
     }
 
 
+}
+
+
+
+/* Content Area */
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Reel Container */
+.reel-container {
+    width: 60%; /* Center content width */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+
+}
+
+/* Reel content */
+.reel img {
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Interactions Section */
+.interactions {
+    padding: 15px;
+}
+
+/* Like Button */
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+/* Comments Section */
+.comments-section {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.comments-section h4 {
+    margin-bottom: 10px;
+}
+
+#comment-input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.add-comment-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-comment-btn:hover {
+    background-color: #0056b3;
+}
+
+#comment-list {
+    margin-top: 10px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment strong {
+    color: #333;
+}
+
+
+
+
+/* Right Sidebar */
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0; /* Position the sidebar on the right */
+    width: 250px;
+    height: 100%;
+    background-color: #f8f8f8;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-sidebar .recent-posts h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.right-sidebar .post {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-sidebar .post img {
+    width: 80%;
+    border-radius: 8px;
+}
+
+.right-sidebar .post p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #fcf9f9;
 }
