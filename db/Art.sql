@@ -22,7 +22,6 @@ CREATE TABLE `Artwork` (
     `title` VARCHAR(100) NOT NULL,
     `description` TEXT,
     `art_type` ENUM('painting', 'sculpture', 'photography', 'digital', 'other') NOT NULL,
-    `price` DECIMAL(10, 2),
     `image_path` VARCHAR(255),  -- URL or file path for the artwork image/media
     `artist_id` INT,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Showcase - Art and Crafts Hub</title>
-    <link rel="stylesheet" href="assets/css//showcase.css">
+    <link rel="stylesheet" href="assets/css/showcase.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* styles for the like button, upload button, and fade animations */
@@ -45,9 +45,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="Homepage.html">Home</a></li>
-                <li><a href="creators-hub.html">Creators Hub</a></li>
-                <li><a href="connect.html">Connect</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="creators-hub.php">Creators Hub</a></li>
+                <li><a href="connect.php">Connect</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
             </ul>
         </nav>
@@ -71,7 +71,7 @@
             <!-- Artwork Card 1 -->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="art5.jpg" alt="Ceramic Pot">
+                    <img src="assets/images/art5.jpg" alt="Ceramic Pot">
                     
                     <div class="overlay">
                         <p>Beautifully handcrafted, this ceramic pot adds a touch of elegance to any space. Its smooth matte finish and earthy tones make it perfect for both plants and décor.</p>
@@ -98,7 +98,7 @@
             <!-- Artwork Card 2 -->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="art3.jpg" alt="Timeless Grace">
+                    <img src="assets/images/art3.jpg" alt="Timeless Grace">
                     
                     <div class="overlay">
                         <p>Stunning portrait of a woman, capturing timeless beauty and emotion. With rich colors and intricate details, this painting brings elegance and depth to any room.</p>
@@ -126,7 +126,7 @@
             <!-- Artwork Card 3 -->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="art1.jpg" alt="Timeless Grace">
+                    <img src="assets/images/art1.jpg" alt="Timeless Grace">
                     
                     <div class="overlay">
                         <p>Bold and striking, this skull painting combines dark elegance with intricate detail. The powerful imagery evokes mystery and reflection, making it a captivating statement piece for any modern or eclectic space.</p>
@@ -155,7 +155,7 @@
             <!-- Artwork Card 4 -->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="art2.jpg" alt="Timeless Grace">
+                    <img src="assets/images/art2.jpg" alt="Timeless Grace">
                     
                     <div class="overlay">
                         <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
@@ -183,7 +183,7 @@
             <!-- Artwork Card 5 -->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="Mystical.jpg" alt="Mystical">
+                    <img src="assets/images/Mystical.jpg" alt="Mystical">
                     
                     <div class="overlay">
                         <p>"Mystical" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
@@ -211,7 +211,7 @@
             <!-- Artwork Card 6-->
             <article class="artwork-card">
                 <div class="image-container">
-                    <img src="art2.jpg" alt="Timeless Grace">
+                    <img src="assets/images/art2.jpg" alt="Timeless Grace">
                     
                     <div class="overlay">
                         <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
@@ -353,6 +353,34 @@
 
             
             <!-- Artwork Card 11-->
+            <article class="artwork-card">
+                <div class="image-container">
+                    <img src="resin bowl.png" alt="Timeless Grace">
+                    
+                    <div class="overlay">
+                        <p>The resin bowl" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
+                    </div>
+
+                    <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+
+                </div>
+                <div class="card-content">
+                    <h3>Guardian of the Shore</h3>
+                    <p class="artist">by Mercy Chidera</p>
+                    <div class="rating">
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Artwork Card 12-->
             <article class="artwork-card">
                 <div class="image-container">
                     <img src="resin bowl.png" alt="Timeless Grace">
