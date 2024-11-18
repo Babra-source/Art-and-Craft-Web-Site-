@@ -36,11 +36,11 @@
 
     <div class="sidebar">
         <a><img src="assets/images/home.png" alt="home"> Home</a>
-        <a href="view/dashboard.php"><img src="assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
-        <a href="view/Post.php"><img src="assets/images/post.png" alt="dashboard"> Make Your Post</a>
-        <a href="view/creatorshub.php"><img src="assets/images/reel.png" alt="Showcase"> Creator Hub</a>
-        <a href="view/showcase.php"><img src="recipe.png" alt="Recipe icon"> Reel</a>
-        <a href="view/contacts.php"><img src="assets/images/feedback.png" alt="About icon"> Contacts</a>
+        <a href="dashboard.php"><img src="assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
+        <a href="Post.php"><img src="assets/images/post.png" alt="dashboard"> Make Your Post</a>
+        <a href="creatorshub.php"><img src="assets/images/reel.png" alt="Showcase"> Creator Hub</a>
+        <a href="showcase.php"><img src="recipe.png" alt="Recipe icon"> Reel</a>
+        <a href="contacts.php"><img src="assets/images/feedback.png" alt="About icon"> Contacts</a>
     </div>
 
     <!-- <form action="post_proc.php" method="POST" enctype="multipart/form-data">

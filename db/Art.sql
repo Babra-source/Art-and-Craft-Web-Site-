@@ -57,3 +57,28 @@ CREATE TABLE `Comments` (
     FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
     FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
 );
+
+
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment_text` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `contact_messages` (
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `message_content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `likes` (
+  `like_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `artwork_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
