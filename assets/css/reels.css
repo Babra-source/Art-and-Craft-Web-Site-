@@ -5,27 +5,26 @@ body {
     margin: 0;
     padding: 0;
     background-color: #121212; /* Dark background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
+}
+
+h3, h4 {
+    font-size: 20px;
+    color: #ffffff;
 }
 
 /* Sidebar Styling */
 .sidebar {
-    position: absolute;
-    left: 0;
-    top: 0;
     background-color: #1e1e1e;
     padding: 20px;
     height: 100vh;
+    position: fixed;
     width: 250px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar a {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     gap: 10px;
     font-size: 16px;
     padding: 12px;
@@ -42,32 +41,26 @@ body {
 
 /* Content Area Styling */
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-left: 270px; /* To account for the sidebar */
     padding: 20px;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 60%;
-    max-width: 800px;
-    margin: auto;
+    justify-items: auto;
+    position: absolute;
 }
 
-/* Reel Styling */
 .reel-container {
-    text-align: center;
+    background-color: #1e1e1e;
+    margin-bottom: 0px;
     padding: 20px;
-    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 80lvh;
+   
 }
 
 .reel img {
     width: 100%;
-    max-height: 60vh;
-    object-fit: cover;
+    height: 90%;
     border-radius: 12px;
-    margin-bottom: 20px;
 }
 
 /* Interactive Section */
@@ -85,13 +78,12 @@ body {
     justify-content: center;
     padding: 12px;
     border: none;
+   
     font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #ff5555;
-    color: #ffffff;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
 }
 
 .like-button:hover {
@@ -101,7 +93,7 @@ body {
 
 /* Comment Section Styling */
 textarea#comment-input {
-    width: 100%;
+    width: 50%;
     border-radius: 8px;
     border: 1px solid #333333;
     padding: 10px;
@@ -110,7 +102,6 @@ textarea#comment-input {
     font-size: 14px;
     background-color: #2e2e2e;
     color: #ffffff;
-    margin-bottom: 10px;
 }
 
 .post-button {
@@ -123,6 +114,7 @@ textarea#comment-input {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
 }
 
 .post-button:hover {
@@ -132,27 +124,51 @@ textarea#comment-input {
 
 /* Right Sidebar Styling */
 .right-sidebar {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    background-color: #1e1e1e;
-    padding: 20px;
-    height: 100vh;
     width: 250px;
+    padding:0px;
+    height: 100vh;
+    background-color: #1e1e1e;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
 }
 
+.right-sidebar .recent-posts {
+    margin-top: 20px;
+    width: 10%;
+}
+
+.right-sidebar .post {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.right-sidebar .post img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.right-sidebar .post p {
+    margin: 0;
+    font-size: 14px;
+    color: #cccccc;
+}
+
 /* Header Styling */
 header {
-    position: absolute;
-    top: 0;
-    left: 250px; /* Adjust for sidebar width */
-    right: 250px; /* Adjust for right sidebar width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #1e1e1e;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    position: sticky;
 }
 
 header .logo img {

@@ -80,7 +80,7 @@
                 <div class="comments-section">
                     <h4>Comments</h4>
                     <!-- Comment Input -->
-                    <form action="actions/comment_proc.php" method="POST">
+                    <form action="../actions/comment_proc.php" method="POST">
                         <textarea id="comment-input"name = "comment" placeholder="Add a comment..."></textarea>
                         <br>
                         <button class="post-button">Post comment</button>
@@ -91,10 +91,10 @@
                     <div id="comment-list">
                         <!-- Example comments -->
                         <div class="comment">
-                            <strong>John Doe:</strong> Beautiful image!
+                            <strong>Lizzy crimps:</strong> Beautiful image!
                         </div>
                         <div class="comment">
-                            <strong>Jane Smith:</strong> I absolutely love this!
+                            <strong>Amp_hopkin:</strong> I absolutely love this!
                         </div>
                     </div>
                 </div>

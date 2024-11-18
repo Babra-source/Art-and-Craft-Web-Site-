@@ -1,4 +1,4 @@
--- Switch to the desired database
+
 DROP DATABASE IF EXISTS artdb;
 CREATE DATABASE artdb;
 USE artdb;  -- Replace with your actual database name
