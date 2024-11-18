@@ -72,28 +72,4 @@ CREATE TABLE `likes` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 =======
--- Comments/Reviews Table
-CREATE TABLE `Comments` (
-    `comment_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
-    `artwork_id` INT NOT NULL,
-    `rating` INT CHECK (rating BETWEEN 1 AND 5),  -- Ensure rating is between 1 and 5
-    `comment_text` TEXT,
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
-    FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
-);
 
-
--- --added
--- CREATE TABLE Artworks (
---     'artwork_id' INT AUTO_INCREMENT PRIMARY KEY,
---     'title' VARCHAR(255) NOT NULL,
---     'artist' VARCHAR(255) NOT NULL,
---     'description' TEXT,
---     'image_url' VARCHAR(255) NOT NULL,
---     'rating' TINYINT CHECK (rating BETWEEN 1 AND 5),
---     'date_added' TIMESTAMP DEFAULT CURRENT_TIMESTAMP
--- );
->>>>>>> dcbb7fc1d2a1b905c05ecd97c021e8c8436c15b8
