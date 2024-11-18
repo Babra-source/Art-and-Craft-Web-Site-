@@ -31,21 +31,19 @@ CREATE TABLE `Artwork` (
 );
 
 -- Marketplace Table
-CREATE TABLE `Marketplace` (
-    `transaction_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `item_description` TEXT,
-    `seller_id` INT NOT NULL,
-    `buyer_id` INT,
-    `artwork_id` INT NOT NULL,
-    `price` DECIMAL(10, 2) NOT NULL,
-    `transaction_status` ENUM('pending', 'completed', 'canceled') DEFAULT 'pending',
-    `transaction_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (`seller_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
-    FOREIGN KEY (`buyer_id`) REFERENCES `users`(`user_id`) ON DELETE SET NULL,
-    FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
-);
-
-<<<<<<< HEAD
+-- CREATE TABLE `Marketplace` (
+--     `transaction_id` INT AUTO_INCREMENT PRIMARY KEY,
+--     `item_description` TEXT,
+--     `seller_id` INT NOT NULL,
+--     `buyer_id` INT,
+--     `artwork_id` INT NOT NULL,
+--     `price` DECIMAL(10, 2) NOT NULL,
+--     `transaction_status` ENUM('pending', 'completed', 'canceled') DEFAULT 'pending',
+--     `transaction_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (`seller_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
+--     FOREIGN KEY (`buyer_id`) REFERENCES `users`(`user_id`) ON DELETE SET NULL,
+--     FOREIGN KEY (`artwork_id`) REFERENCES `Artwork`(`artwork_id`) ON DELETE CASCADE
+-- );
 
 
 
