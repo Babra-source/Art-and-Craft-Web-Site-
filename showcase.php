@@ -68,7 +68,9 @@
             <!-- Interactive Section -->
             <div class="interactions">
                 <!-- Like Button -->
-                <button class="like-btn">❤️ <span id="like-count">20</span></button>
+                <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
 
                 <!-- Comment Section -->
                 <div class="comments-section">
@@ -76,7 +78,10 @@
                     <!-- Comment Input -->
                     <form action="actions/comment_proc.php" method="POST">
                         <textarea id="comment-input"name = "comment" placeholder="Add a comment..."></textarea>
-                        <button type ="submit" class="add-comment-btn">Post</button>
+                        <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+
                     </form>
 
                     <!-- Comment List -->
