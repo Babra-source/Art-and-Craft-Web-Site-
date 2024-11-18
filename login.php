@@ -6,6 +6,9 @@
     <title>Arts and Crafts Hub | Login</title>
     <link rel="stylesheet" href="assets/css/signup.css"> 
 </head>
+
+
+
 <body style = "background-image: url('assets/images/proArt1.jpg')">
 
     

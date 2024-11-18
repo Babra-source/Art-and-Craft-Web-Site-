@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Showcase - Art and Crafts Hub</title>
-    <link rel="stylesheet" href="/assets/css/showcase.css">
+    <link rel="stylesheet" href="assets/css//showcase.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Additional styles for the like button, upload button, and fade animations */
+        /* styles for the like button, upload button, and fade animations */
         .like-button {
             position: absolute;
             top: 10px;
@@ -402,7 +402,7 @@
                     const title = card.querySelector('h3').textContent.toLowerCase();
                     const artist = card.querySelector('.artist').textContent.toLowerCase();
                     const description = card.querySelector('.overlay p').textContent.toLowerCase();
-                    const searchableContent = ${title} ${artist} ${description};
+                    const searchableContent = `${title} ${artist} ${description}`;
 
                     if (searchTerm === '' || searchableContent.includes(searchTerm)) {
                         card.style.display = 'block';
