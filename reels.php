@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts - Crafts| Showcase</title>
-    <link rel="stylesheet" href="assets/css/showcase.css">
+    <link rel="stylesheet" href="assets/css/reels.css">
 </head>
 
 
