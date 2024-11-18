@@ -11,24 +11,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts - Crafts| Showcase</title>
-    <link rel="stylesheet" href="assets/css/reels.css">
+    <link rel="stylesheet" href="../assets/css/reels.css">
 </head>
 
 
 
 <body>
-    <script src="assets/js/showcase.js"></script>
+    <script src="../assets/js/showcase.js"></script>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="/assets/images/logo-removebg-preview (1).png" alt="Lilac Spoon Logo"></a>
+            <a href="index.html"><img src="../assets/images/logo-removebg-preview (1).png" alt="Lilac Spoon Logo"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <!--<li><a href="showcase.html">Showcase</a></li>-->
-                <li><a href="creatorshub.html">Creators Hub</a></li>
-                <li><a href="connect.html">Connect</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="../view/creatorshub.php">Creators Hub</a></li>
+                <li><a href="../view/connect.phpl">Connect</a></li>
+                <li><a href="../view/contacts.html">Contacts</a></li>
             </ul>
         </nav>
     </header>
@@ -36,11 +36,11 @@
 
     <div class="sidebar">
         <a><img src="assets/images/home.png" alt="home"> Home</a>
-        <a href="dashboard.php"><img src="assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
-        <a href="Post.php"><img src="assets/images/post.png" alt="dashboard"> Make Your Post</a>
-        <a href="creatorshub.php"><img src="assets/images/reel.png" alt="Showcase"> Creator Hub</a>
-        <a href="showcase.php"><img src="recipe.png" alt="Recipe icon"> Reel</a>
-        <a href="contacts.html"><img src="assets/images/feedback.png" alt="About icon"> Contacts</a>
+        <a href="../view/dashboard.php"><img src="../assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
+        <a href="../view/reels.php"><img src="../assets/images/post.png" alt="dashboard"> Make Your Post</a>
+        <a href="../view/creatorshub.html"><img src="../assets/images/reel.png" alt="Showcase"> Creator Hub</a>
+        <a href="../view/showcase.php"><img src="../assets/images/recipe.png" alt="Recipe icon"> Reel</a>
+        <a href="../view/contacts.php"><img src="../assets/images/feedback.png" alt="About icon"> Contacts</a>
     </div>
 
     <!-- <form action="post_proc.php" method="POST" enctype="multipart/form-data">
@@ -62,7 +62,7 @@
         <div class="reel-container">
             <!-- Reel Content -->
             <div class="reel">
-            <img src="assets/images/art1.jpg"  alt="Reel Image">
+            <img src="../assets/images/art1.jpg"  alt="Reel Image">
             </div>
 
             <!-- Interactive Section -->

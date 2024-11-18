@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts Hub | Login</title>
-    <link rel="stylesheet" href="assets/css/signup.css"> 
+    <link rel="stylesheet" href="../assets/css/signup.css"> 
 </head>
 
 
 
-<body style = "background-image: url('assets/images/proArt1.jpg')">
+<body style = "background-image: url('../assets/images/proArt1.jpg')">
 
     
 
     <div class="form-container">
         <h1><b>The Arts and Crafts Hub.</b></h1>
         <p><b>Login</b></p>
-        <form action="actions/login_user.php" method = "post">
+        <form action="/Art-and-Craft-Web-Site-/actions/login_user.php" method = "post">
             <input type="email" id="email" placeholder="Enter Email"  name = "email"  required><br>
             <input type="password" id="password" placeholder="Enter Password" name = "password" required><br>
             <span id="passwordError" style="color:rgb(255, 3, 3);"></span><br><br>
@@ -26,7 +26,7 @@
             <div id="loginSuccess" style="color: green;"></div>
 
             <button type=submit onsubmit= "return formvalidate() "><b>Login</b></button><br><br>
-            <p>Don't have an account? <a href="signup.html"><b>Sign up</b></a></p>
+            <p>Don't have an account? <a href="../view/signup.php"><b>Sign up</b></a></p>
         </form>
     </div>
 

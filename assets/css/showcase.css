@@ -39,7 +39,8 @@ body {
 }
 
 .logo img {
-    height: 32px;
+    width: 200px;
+    height: auto;
 }
 
 nav ul {

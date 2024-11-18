@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start the session to access session variables
-include 'db/config.php';
+include '../db/config.php';
 
 // Retrieve the user's name from session, default to 'Guest' if not set
 $userName = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : 'Guest';
@@ -31,21 +31,21 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arts and Crafts Hub - Dashboard</title>
-  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
   <header class="dashboard-header">
     <div class="dashboard-header-content">
       <a href="index.html" class="dashboard-logo">
-        <img src="logo-removebg-preview (1).png" alt="Arts and Crafts Hub Logo">
+        <img src="../assets/images/logo-removebg-preview (1).png" alt="Arts and Crafts Hub Logo">
       </a>
       <nav>
         <ul class="dashboard-nav-list">
-          <li><a href="showcase.html">Showcase</a></li>
-          <li><a href="connect.html">Connect</a></li>
-          <li><a href="contacts.html">Contacts</a></li>
-          <li><a href="login.php">Logout</a></li>
+          <li><a href="../view/showcase.php">Showcase</a></li>
+          <li><a href="../view/connect.php">Connect</a></li>
+          <li><a href="../view/contacts.html">Contacts</a></li>
+          <li><a href="../view/login.php">Logout</a></li>
         </ul>
       </nav>
     </div>

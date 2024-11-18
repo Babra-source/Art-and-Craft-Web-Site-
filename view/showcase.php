@@ -40,7 +40,7 @@
     <header class="main-header">
         <div class="logo">
            
-            <img src="logo-removebg-preview (1).png" alt="Arts and Crafts Hub Logo">
+            <img src="assets/images/logo-removebg-preview (1).png" alt="Arts and Crafts Hub Logo">
             
         </div>
         <nav>
