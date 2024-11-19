@@ -1,6 +1,6 @@
 <?php
 // submit-contact.php
-require_once 'config.php';  // Use your existing config file
+require_once 'config.php';  
 
 class ContactFormHandler {
     private $conn;
