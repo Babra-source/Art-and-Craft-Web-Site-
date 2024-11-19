@@ -1,6 +1,6 @@
 <?php
 
-
+ob_start();
 include '../db/config.php';  // Change the backslash to a forward slash
 
 
@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Execute the statement and check if it was successful
         if ($stmt->execute()) {
-            header('Location: login.html'); // Redirect to the login page if successful
+            $_SESSION['fname'] = $firstName;
+            header('Location: ../login.php'); // Redirect to the login page if successful
         } else {
             header('Location: signUp.html'); 
         }
