@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Showcase - Lilac Spoon</title>
+    <link rel="stylesheet" href="modern-showcase.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo-removebg-preview.png" alt="Lilac Spoon Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="creators-hub.html">Creators Hub</a></li>
+                <li><a href="connect.html">Connect</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="showcase-container">
+        <section class="hero-section">
+            <h1 class="main-title">Find artwork you'll <span class="highlight">Love</span></h1>
+            <p class="subtitle">Craft Your Way: Explore a World of Creativity</p>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search for artwork..." class="search-input">
+            </div>
+        </section>
+
+        <section class="artwork-grid">
+            <!-- Artwork Card 1 -->
+            <article class="artwork-card">
+                <div class="image-container">
+                    <img src="art5.jpg" alt="Ceramic Pot">
+                    <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="overlay">
+                        <p>Beautifully handcrafted, this ceramic pot adds a touch of elegance to any space. Its smooth matte finish and earthy tones make it perfect for both plants and décor.</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Ceramic Pot</h3>
+                    <p class="artist">by Sandra Darko</p>
+                    <div class="rating">
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Artwork Card 2 -->
+            <article class="artwork-card">
+                <div class="image-container">
+                    <img src="art3.jpg" alt="Timeless Grace">
+                    <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="overlay">
+                        <p>Stunning portrait of a woman, capturing timeless beauty and emotion. With rich colors and intricate details, this painting brings elegance and depth to any room.</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Timeless Grace</h3>
+                    <p class="artist">by Mensah Kevin</p>
+                    <div class="rating">
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Artwork Card 3 -->
+            <article class="artwork-card">
+                <div class="image-container">
+                    <img src="art1.jpg" alt="Timeless Grace">
+                    <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="overlay">
+                        <p>Bold and striking, this skull painting combines dark elegance with intricate detail. The powerful imagery evokes mystery and reflection, making it a captivating statement piece for any modern or eclectic space.</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Timeless Grace</h3>
+                    <p class="artist">by Budud Yaw</p>
+                    <div class="rating">
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Artwork Card 4 -->
+            <article class="artwork-card">
+                <div class="image-container">
+                    <img src="art2.jpg" alt="Timeless Grace">
+                    <button class="like-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="overlay">
+                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Timeless Grace</h3>
+                    <p class="artist">by Mercy Chidera</p>
+                    <div class="rating">
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star active">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </article>
+
+            
+        </section>
+    </main>
+
+    <script>
+        // Simple JavaScript for like button functionality
+        document.querySelectorAll('.like-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
