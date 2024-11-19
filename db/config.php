@@ -2,8 +2,8 @@
 
 $servername = 'localhost'; // The server where the database is hosted
 $username = 'root';        // The username to access the database
-$password = '';            
-$dbname = 'artdb';      
+$password = '';     //pass      
+$dbname = 'artdb';     //webtech 
 
 // Attempt to connect to the database using the provided details
 $conn = mysqli_connect($servername, $username, $password, $dbname) 
