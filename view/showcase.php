@@ -45,10 +45,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="creators-hub.php">Creators Hub</a></li>
-                <li><a href="connect.php">Connect</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../view/reels.php">Arts Reels</a></li>
+                <li><a href="#" id="uploadLink">Upload Artwork</a></li>
+                <li><a href="contacts.">Contacts</a></li>
             </ul>
         </nav>
     </header>

@@ -22,6 +22,7 @@ body, html {
     background-color: #fff;
     padding: 15px;
     border-right: 1px solid #ddd;
+    display: fixed;
 }
 
 /* Main Content: Reel */
@@ -38,21 +39,25 @@ body, html {
 .reel-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; 
     align-items: center;
     padding: 5px;
     width: 100%;
     border-style: solid;  /* Makes the border visible */
     border-width: 2px;    /* Sets the width of the border */
-    border-radius: 10%;
-    border-color: #000;   /* Sets the border color to black */
+    
+    border-color: #ece9e9;   /* Sets the border color to black */
 }
-
 
 .artwork-card {
     width: 100%;
-    max-width: 600px; /* Max width for the artwork card */
+    max-width: 600px;       /* Limit card width */
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    /* Extra space between cards */
 }
 
 .image-container {
@@ -64,7 +69,7 @@ body, html {
 }
 
 .image-container img {
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
 }
 
@@ -84,9 +89,8 @@ body, html {
 }
 
 .comment-box {
-    width: 100%;
-    max-width: 500px;
-    height: 80px;
+    width: 50%;
+    height: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -113,6 +117,7 @@ body, html {
     background-color: #fff;
     padding: 15px;
     border-left: 1px solid #ddd;
+    display: fixed;
 }
 
 .right-bar h3 {
