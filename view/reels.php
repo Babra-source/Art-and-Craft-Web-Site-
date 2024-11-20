@@ -25,6 +25,7 @@
             </nav>
         </aside> <!-- Close the sidebar here -->
 
+<<<<<<< HEAD
 <!-- <<<<<<< HEAD -->
 
     <div class="sidebar">
@@ -87,6 +88,8 @@
                         <div class="comment">
                             <strong>Amp_hopkin:</strong> I absolutely love this!
                         </div>
+=======
+>>>>>>> f9ddb7896c5d24ea5706dc99c882661f52e1dfa0
 
         <!-- Main Content: Reel -->
         <main class="main-content">
@@ -164,8 +167,11 @@
     </div>
 
 
+<<<<<<< HEAD
     <script src=".../assets/js/reels.js"></script>
 
+=======
+>>>>>>> f9ddb7896c5d24ea5706dc99c882661f52e1dfa0
     <script>
         // Get the modal and the button that opens it
         var modal = document.getElementById("uploadModal");
