@@ -25,6 +25,7 @@
             </nav>
         </aside> <!-- Close the sidebar here -->
 
+
         <!-- Main Content: Reel -->
         <main class="main-content">
             <div class="reel-container">
@@ -98,6 +99,7 @@
             </form>
         </div>
     </div>
+
 
     <script>
         // Get the modal and the button that opens it
