@@ -14,7 +14,7 @@
         <h1><b>The Arts and Crafts Hub</b></h1>
 
         <p><b>Sign up</b></p>
-        <form action="/actions/register_process.php" method = "post" onsubmit= "return validateForm()">
+        <form action="/actions/login_user.php" method = "post" onsubmit= "return validateForm()">
         <input type="text" id="firstName" name="firstname" placeholder="Enter First Name"><br>
         <input type="text" id="lastName" name="lastname" placeholder="Enter Last Name"><br>
         <input type="email" id="email" name="email" placeholder="Enter Email"><br>
