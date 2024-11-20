@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts | Contacts</title>
-    <link rel="stylesheet" href="assets/css/contacts.css">
+    <link rel="stylesheet" href="../assets/css/contacts.css">
 </head>
 <body>
     <header>
@@ -137,10 +137,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav>
             <ul>
                 <!--<li><a href="Homepage.html">Home</a></li>-->
-                <li><a href="showcase.php">Showcase</a></li>
-                <li><a href="creatorshub.php">Creators Hub</a></li>
-                <li><a href="connect.php">Connect</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="../view/showcase.php">Showcase</a></li>
+                <li><a href="../view/creatorshub.php">Creators Hub</a></li>
+                <li><a href="../view/connect.php">Connect</a></li>
+                <!-- <li><a href="contacts.html">Contacts</a></li> -->
             </ul>
         </nav>
     </header>

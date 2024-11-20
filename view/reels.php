@@ -37,7 +37,7 @@
 
 
     <div class="sidebar">
-        <a><img src="assets/images/home.png" alt="home"> Home</a>
+        <a><img src="../assets/images/home.png" alt="home"> Home</a>
         <a href="../view/dashboard.php"><img src="../assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
         <a href="../view/reels.php"><img src="../assets/images/post.png" alt="dashboard"> Make Your Post</a>
         <a href="../view/creatorshub.html"><img src="../assets/images/reel.png" alt="Showcase"> Creator Hub</a>
@@ -121,6 +121,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src=".../assets/js/reels.js"></script>
 </body>
 </html>

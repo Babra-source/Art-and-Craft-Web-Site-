@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts Hub | Login</title>
-    <link rel="stylesheet" href="../assets/css/signup.css"> 
+    <link rel="stylesheet" href="../assets/css/login.css"> 
 </head>
 
 
@@ -41,7 +41,7 @@
            passwordError.textContent = "";
 
            
-           var emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
+           var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
            if (email === "") {
                errorMessages.push("Email is required!");
            } else if (!emailPattern.test(email)) {
