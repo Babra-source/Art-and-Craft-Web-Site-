@@ -25,71 +25,6 @@
             </nav>
         </aside> <!-- Close the sidebar here -->
 
-<<<<<<< HEAD
-<!-- <<<<<<< HEAD -->
-
-    <div class="sidebar">
-        <a><img src="../assets/images/home.png" alt="home"> Home</a>
-        <a href="../view/dashboard.php"><img src="../assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
-        <a href="../view/reels.php"><img src="../assets/images/post.png" alt="dashboard"> Make Your Post</a>
-        <a href="../view/creatorshub.html"><img src="../assets/images/reel.png" alt="Showcase"> Creator Hub</a>
-        <a href="../view/showcase.php"><img src="../assets/images/recipe.png" alt="Recipe icon"> Reel</a>
-        <a href="../view/contacts.php"><img src="../assets/images/feedback.png" alt="About icon"> Contacts</a>
-    </div>
-
-    <!-- <form action="post_proc.php" method="POST" enctype="multipart/form-data">
-    <label for="artTitle">Art Title</label>
-    <input type="text" id="artTitle" name="artTitle" required><br>
-
-    <label for="artDescription">Art Description</label>
-    <textarea id="artDescription" name="artDescription" required></textarea><br>
-
-    <label for="artImage">Art Image</label>
-    <input type="file" id="artImage" name="artImage" accept="image/*" required><br>
-
-    <button type="submit">Post Art</button>
-    </form> -->
-
-
-      <!-- Main Content -->
-      <div class="content">
-        <div class="reel-container">
-            <!-- Reel Content -->
-            <div class="reel">
-            <img src="../assets/images/art1.jpg"  alt="Reel Image">
-            <!-- Like Button -->
-            
-            </div>
-            <button class="like-button">
-                        <i class="fas fa-heart"></i>
-            </button>
-
-            <!-- Interactive Section -->
-            <div class="interactions">
-                
-
-                <!-- Comment Section -->
-                <div class="comments-section">
-                    <h4>Comments</h4>
-                    <!-- Comment Input -->
-                    <form action="../actions/comment_proc.php" method="POST">
-                        <textarea id="comment-input"name = "comment" placeholder="Add a comment..."></textarea>
-                        <br>
-                        <button class="post-button">Post comment</button>
-
-                    </form>
-
-                    <!-- Comment List -->
-                    <div id="comment-list">
-                        <!-- Example comments -->
-                        <div class="comment">
-                            <strong>Lizzy crimps:</strong> Beautiful image!
-                        </div>
-                        <div class="comment">
-                            <strong>Amp_hopkin:</strong> I absolutely love this!
-                        </div>
-=======
->>>>>>> f9ddb7896c5d24ea5706dc99c882661f52e1dfa0
 
         <!-- Main Content: Reel -->
         <main class="main-content">
@@ -97,7 +32,6 @@
                 <article class="artwork-card">
                     <div class="image-container">
                         <img src="../assets/images/art2.jpg" alt="Timeless Grace">
-
                     </div>
                     <p class="art-description">
                         "Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature.
@@ -167,11 +101,6 @@
     </div>
 
 
-<<<<<<< HEAD
-    <script src=".../assets/js/reels.js"></script>
-
-=======
->>>>>>> f9ddb7896c5d24ea5706dc99c882661f52e1dfa0
     <script>
         // Get the modal and the button that opens it
         var modal = document.getElementById("uploadModal");
@@ -195,6 +124,5 @@
             }
         }
     </script>
-
 </body>
 </html>
