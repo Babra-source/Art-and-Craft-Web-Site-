@@ -25,7 +25,7 @@
             </nav>
         </aside> <!-- Close the sidebar here -->
 
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 
     <div class="sidebar">
         <a><img src="../assets/images/home.png" alt="home"> Home</a>
@@ -87,14 +87,14 @@
                         <div class="comment">
                             <strong>Amp_hopkin:</strong> I absolutely love this!
                         </div>
-=======
+
         <!-- Main Content: Reel -->
         <main class="main-content">
             <div class="reel-container">
                 <article class="artwork-card">
                     <div class="image-container">
                         <img src="../assets/images/art2.jpg" alt="Timeless Grace">
->>>>>>> 38e08f4674c885c86ef1bd3301735247cdabd25f
+
                     </div>
                     <p class="art-description">
                         "Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature.
@@ -163,9 +163,9 @@
         </div>
     </div>
 
-<<<<<<< HEAD
+
     <script src=".../assets/js/reels.js"></script>
-=======
+
     <script>
         // Get the modal and the button that opens it
         var modal = document.getElementById("uploadModal");
@@ -189,6 +189,6 @@
             }
         }
     </script>
->>>>>>> 38e08f4674c885c86ef1bd3301735247cdabd25f
+
 </body>
 </html>
