@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the email already exists in the database
     if ($results->num_rows > 0) {
         echo '<script>alert("User already registered.");</script>';
-<<<<<<< HEAD
+
         echo '<script>window.location.href = "../view/signup.php";</script>';
-=======
+
         echo '<script>window.location.href = "signup.php";</script>';
->>>>>>> 38e08f4674c885c86ef1bd3301735247cdabd25f
+
     } else {
         // Hash the password for security before storing it in the database
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
