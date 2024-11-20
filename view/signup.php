@@ -11,7 +11,7 @@
     <body style = "background-image: url('../assets/images/proArt1.jpg')">
 
     <div class="form-container">
-        <h1><b>The Arts and Crafts Hub</b></h1>
+        <h1><b>The Arts and Crafts Hub|Sign Up</b></h1>
 
         <p><b>Sign up</b></p>
         <form action="../actions/register_process.php" method = "post" onsubmit= "return validateForm()">
