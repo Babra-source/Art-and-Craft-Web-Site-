@@ -4,11 +4,16 @@ ini_set('display_errors', 1);
 
 include '../db/config.php';
 
-// Fetch the latest 3 posts
-$sql = "SELECT * FROM artwork ORDER BY created_at DESC LIMIT 3";
-$result = $conn->query($sql);
+// Fetch the top 4 most liked (or trending) posts based on the number of likes
+$sql = "
+    SELECT artwork.*, COUNT(likes.art_id) AS like_count
+    FROM artwork
+    LEFT JOIN likes ON artwork.art_id = likes.art_id
+    GROUP BY artwork.art_id
+    ORDER BY like_count DESC
+    LIMIT 4"; // Get the top 4 posts with the most likes
 
-$imageUrl = isset($post['image_url']) ? $post['image_url'] : 'default_image_url.jpg'; 
+$result = $conn->query($sql);
 
 // Check if there are results
 if ($result) {
@@ -20,11 +25,12 @@ if ($result) {
             echo '<div class="post-details">';
             echo '<h4>' . htmlspecialchars($row['title']) . '</h4>';
             echo '<p>' . htmlspecialchars($row['description']) . '</p>';
+            echo '<p><strong>Likes:</strong> ' . $row['like_count'] . '</p>'; // Display the like count
             echo '</div>';
             echo '</div>';
         }
     } else {
-        echo "No recent posts available.";
+        echo "No posts available.";
     }
 } else {
     die("Error executing query: " . $conn->error);

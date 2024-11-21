@@ -28,6 +28,14 @@
         </aside> <!-- Close the sidebar here -->
 
 
+
+
+
+
+
+
+        
+
 <!-- Right Sidebar: Recent Posts  -->
         <aside class="right-bar">
             <h3>Recent Posts</h3>
@@ -35,7 +43,16 @@
 
             include('../actions/recentpost.php');
             ?>
+            <hr>
+
+
+            <h3>Trending Post</h3>
+
         </aside>
+
+     
+        
+        
 
 
 
