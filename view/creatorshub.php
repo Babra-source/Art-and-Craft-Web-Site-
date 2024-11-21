@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator's hub</title>
+    <title>rts and Crafts Hub | Creator's Hub</title>
     <link rel="stylesheet" href="/assets/css/creatorshub.css">
 </head>
 <body>

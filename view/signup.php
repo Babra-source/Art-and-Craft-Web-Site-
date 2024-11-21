@@ -11,10 +11,14 @@
     <body style = "background-image: url('../assets/images/proArt1.jpg')">
 
     <div class="form-container">
-        <h1><b>The Arts and Crafts Hub</b></h1>
+        <h1><b>The Arts and Crafts Hub|Sign Up</b></h1>
 
         <p><b>Sign up</b></p>
+<<<<<<< HEAD
         <form action="/actions/login_user.php" method = "post" onsubmit= "return validateForm()">
+=======
+        <form action="../actions/register_process.php" method = "post" onsubmit= "return validateForm()">
+>>>>>>> 38e08f4674c885c86ef1bd3301735247cdabd25f
         <input type="text" id="firstName" name="firstname" placeholder="Enter First Name"><br>
         <input type="text" id="lastName" name="lastname" placeholder="Enter Last Name"><br>
         <input type="email" id="email" name="email" placeholder="Enter Email"><br>

@@ -16,7 +16,7 @@
     <div class="form-container">
         <h1><b>The Arts and Crafts Hub.</b></h1>
         <p><b>Login</b></p>
-        <form action="/Art-and-Craft-Web-Site-/actions/login_user.php" method = "post">
+        <form action="../actions/login_user.php" method = "post" onsubmit= "return formvalidate()" >
             <input type="email" id="email" placeholder="Enter Email"  name = "email"  required><br>
             <input type="password" id="password" placeholder="Enter Password" name = "password" required><br>
             <span id="passwordError" style="color:rgb(255, 3, 3);"></span><br><br>

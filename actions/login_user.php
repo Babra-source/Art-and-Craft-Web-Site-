@@ -29,27 +29,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if the email exists in the database
     if ($results->num_rows > 0) {
-        $user = $results->fetch_assoc(); // Fetch the user data
+        $user = $results->fetch_assoc();
 
-        // Verify the password using password_verify
+        // The code to verify the password
         if (password_verify($password, $user['password'])) {
-            // Store user data in session variables
+            
             $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['fname'] = $user['fname'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role']; 
-            $_SESSION['firstname'] = $user['fname']; 
+            $_SESSION['role'] = $user['role'];
 
-            // Redirect to the user's dashboard or home page
-            echo "Session fname: " . $_SESSION['fname'];
-            header('Location: ../view/showcase.php'); 
+            //The code to redirect to the user's dashboard
+            header('Location: ../view/dashboard.php');
 
-        } else {
-            header('Location: ../view/login.php');
-        }
+        // } else {
+        //     echo '<script>alert("Incorrect password. Please try again.");</script>';
+        //     echo '<script>window.location.href = "../view/Login.php";</script>';
+        // }
     } else {
-        header('Location: ../view/login.php'); 
+        header('Location: ../view/Login.php');
     }
-
+    }
     // Close the statement after execution
     $stmt->close();
 }
@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $conn->close();
 ?>
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,3 +137,5 @@ $conn->close();
 
 </body>
 </html>
+=======
+>>>>>>> 38e08f4674c885c86ef1bd3301735247cdabd25f

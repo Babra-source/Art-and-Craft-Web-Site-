@@ -3,7 +3,7 @@ session_start(); // Start the session to access session variables
 include '../db/config.php';
 
 // Retrieve the user's name from session, default to 'Guest' if not set
-$userName = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : 'Guest';
+$userName = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'Guest';
 $role = $_SESSION['role'];
 $user_id = $_SESSION['user_id'];
 // Query for total number of customers based on unique user_id
@@ -30,7 +30,7 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arts and Crafts Hub - Dashboard</title>
+  <title>Arts and Crafts Hub | Dashboard</title>
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
@@ -42,9 +42,10 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
       </a>
       <nav>
         <ul class="dashboard-nav-list">
+        <li><a href="../view/reels.php">Artwork Reels</a></li>
           <li><a href="../view/showcase.php">Showcase</a></li>
           <li><a href="../view/connect.php">Connect</a></li>
-          <li><a href="../view/contacts.html">Contacts</a></li>
+          <li><a href="../view/contacts.php">Contacts</a></li>
           <li><a href="../view/login.php">Logout</a></li>
         </ul>
       </nav>
