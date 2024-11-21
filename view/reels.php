@@ -150,7 +150,6 @@ $result = $stmt->get_result();
                 <a href="#" id="uploadLink">Upload Artwork</a>
                 <a href="../view/contacts.php">Contact</a>
             </nav>
-<<<<<<< HEAD
         </aside> <!-- Close the sidebar here -->
 
 
@@ -210,29 +209,6 @@ $result = $stmt->get_result();
 
                     <button type="submit">Submit Artwork</button>
                 </form>
-=======
-        </aside>
-
-        <!-- Main Content -->
-        <main class="artwork-reels">
-            <div class="artwork-container">
-                <?php while($artwork = $result->fetch_assoc()): ?>
-                    <div class="artwork-post">
-                        <img src="<?= htmlspecialchars($artwork['artwork_path']) ?>" alt="Artwork">
-                        <div class="post-details">
-                            <h3><?= htmlspecialchars($artwork['name']) ?></h3>
-                            <p><?= htmlspecialchars($artwork['description']) ?></p>
-                            <button 
-                                class="like-btn <?= $artwork['user_liked'] ? 'liked' : '' ?>" 
-                                data-artwork-id="<?= $artwork['artwork_id'] ?>"
-                            >
-                                <i class="fas fa-heart"></i>
-                                <span><?= $artwork['total_likes'] ?></span>
-                            </button>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
->>>>>>> 6b0c3b39927caeac996c5dc68b60af9ced77c4b6
             </div>
         </main>
     </div>
