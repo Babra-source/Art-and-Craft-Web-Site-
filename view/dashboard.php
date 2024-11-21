@@ -159,7 +159,5 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
 </body>
 </html>
 <?
-if ($conn) {
-    $conn->close();
-}
-?>
+
+    // $conn->close();
