@@ -1,220 +1,350 @@
-/* General Reset */
-body, html {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-    height: 100%;
+    background-color: #f4f4f4;
 }
 
-/* Container using flexbox or grid layout */
-.container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Sidebar, Main Content, Recent Posts */
-    gap: 20px;
-    height: 100vh;
-}
 
-/* Left Sidebar: Navigation */
+
+/* Sidebar Styles */
 .sidebar {
-    background-color: #fff;
-    padding: 15px;
-    border-right: 1px solid #ddd;
-    display: fixed;
-}
-
-/* Main Content: Reel */
-.main-content {
-    background-color: #fff;
+    width: 200px;
+    background-color: #ffffff;
     padding: 20px;
-    display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    flex-direction: column;
-    height: 100%; /* Full height for centering */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    width: 200px; /* Sidebar width */
+    position: fixed; 
+    height: 100%;
+    overflow-y: auto; /* Scrolling for overflow content */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Adds depth with a shadow */
+    border-right: 1px solid #ddd;
+
+
 }
 
-.reel-container {
+
+
+.sidebar nav a {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
     align-items: center;
-    padding: 5px;
-    width: 100%;
-    border-style: solid;  /* Makes the border visible */
-    border-width: 2px;    /* Sets the width of the border */
-    
-    border-color: #ece9e9;   /* Sets the border color to black */
-}
-
-.artwork-card {
-    width: 100%;
-    max-width: 600px;       /* Limit card width */
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;    /* Extra space between cards */
-}
-
-.image-container {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.image-container img {
-    width: 50%;
-    border-radius: 10px;
-}
-
-.art-description {
-    font-size: 14px;
+    text-decoration: none;
     color: #333;
     margin-bottom: 10px;
-    text-align: left;
 }
 
-/* Interaction Section */
-.interaction-section {
+.sidebar nav a img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+/* Main Artwork Reels Styles */
+.artwork-reels {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.artwork-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+
+.artwork-post {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.artwork-post img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.post-details {
+    padding: 15px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
 
-.comment-box {
-    width: 50%;
-    height: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: none;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.comment-submit {
-    padding: 10px 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Like Button Styles */
+.like-btn {
+    background: none;
+    border: none;
     cursor: pointer;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
 }
 
-.comment-submit:hover {
-    background-color: #ddd;
+.like-btn i {
+    color: gray;
+    margin-right: 5px;
 }
 
+.like-btn.liked i {
+    color: red;
+}
+
+/* Right Sidebar Styles */
 /* Right Sidebar: Recent Posts */
 .right-bar {
     background-color: #fff;
     padding: 15px;
     border-left: 1px solid #ddd;
-    display: fixed;
+    position: fixed; /* Fixes the sidebar on the page */
+    top: 0;
+    right: 0;
+    width: 300px; /* Sidebar width */
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Scrolling for overflow content */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Adds depth with a shadow */
 }
 
+/* Title for the sidebar */
 .right-bar h3 {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #333; /* High contrast text color */
 }
 
+/* Styling each recent post */
 .recent-post {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+/* Image styling for the recent posts */
 .recent-post img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 10px;
-    border: 1px solid #ddd;
+    width: 50px;  /* Size of the image */
+    height: 50px; /* Size of the image */
+    object-fit: cover; /* Ensures the image fits perfectly */
+    border-radius: 50%; /* Circular image */
+    margin-right: 10px; /* Space between image and text */
+    border: 2px solid #ddd; /* Thin border around the image */
 }
 
+/* Styling for post details */
+.post-details {
+    flex-grow: 1; /* Ensures the text takes up the remaining space */
+}
+
+/* Post title (h4) styling */
 .post-details h4 {
     margin: 0;
     font-size: 14px;
     font-weight: bold;
+    color: #333; /* Readable text color */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds "..." for overflowing text */
 }
 
+/* Post description (p) styling */
 .post-details p {
     margin: 5px 0 0;
     font-size: 12px;
-    color: #555;
+    color: #777; /* Subtle description color */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds "..." for overflowing text */
 }
 
+/* Removing default anchor styles */
 a {
-    text-decoration: none;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits color from parent for links */
+}
+
+/* Hover effect for recent posts */
+.recent-post:hover {
+    background-color: #f9f9f9; /* Slightly highlighted background on hover */
+    border-radius: 5px; /* Rounded corners for hover effect */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+
+
+/*Center content*/
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+    padding: 10px;
+}
+
+.reel-container {
+    width: 40%; /* Reduce the width for a more compact layout */
+    max-height: 100%; /* Adjust height to fit content neatly */
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    scrollbar-width: thin;
+}
+
+/* Artwork Card */
+.artwork-card {
+    margin-bottom: 15px; /* Reduce space between cards */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.image-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the image */
+}
+
+.image-container img {
+    width: 80%; /* Make the image smaller */
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    max-height: 300px; /* Limit the height of the image */
+    object-fit: cover;
+}
+
+.art-description {
+    padding: 10px; /* Slightly reduce padding */
+    font-size: 14px; /* Reduce font size for a compact look */
+    color: #333;
+    text-align: center;
+}
+
+/* Interaction Section */
+.interaction-section {
+    padding: 10px; /* Reduce padding */
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px; /* Smaller button size */
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.love-button {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.like-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.action-button i {
+    margin-right: 5px; /* Reduce space for icons */
+    font-size: 16px; /* Adjust icon size */
+}
+
+.comment-box {
+    width: 90%; /* Reduce textarea width */
+    padding: 8px; /* Compact padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 12px; /* Smaller font */
+    resize: none;
+}
+
+.comment-submit {
+    padding: 8px 15px; /* Smaller button size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-submit:hover {
+    background-color: #0056b3;
 }
 
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 1; /* Sit on top */
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
-    padding-top: 60px;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 10px;
     width: 80%;
     max-width: 500px;
 }
 
-/* Close Button */
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
     cursor: pointer;
 }
 
-/* Form Styling */
-.upload-form input, .upload-form textarea, .upload-form select {
-    width: 100%;
+.upload-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-form input, 
+.upload-form textarea, 
+.upload-form select {
+    margin-bottom: 15px;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .upload-form button {
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-.upload-form button:hover {
-    background-color: #45a049;
 }

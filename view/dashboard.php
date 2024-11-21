@@ -21,6 +21,18 @@ $totalMessagesQuery = "SELECT COUNT(message_id) FROM contact_messages";
 $totalMessagesResult = $conn->query($totalMessagesQuery);
 $totalMessages = $totalMessagesResult->fetch_row()[0];
 
+
+// Fetch the number of posts made by the user
+$userPostsQuery = "SELECT COUNT(artwork_id) FROM artwork WHERE artist_id = '$user_id'"; 
+$userPostsResult = $conn->query($userPostsQuery);
+$userPosts = $userPostsResult->fetch_row()[0];
+
+
+// Fetch recent artwork posts by the user
+$recentArtworksQuery = "SELECT title, created_at FROM artwork WHERE artist_id = '$user_id' ORDER BY created_at DESC LIMIT 3";
+$recentArtworksResult = $conn->query($recentArtworksQuery);
+
+
 // Close the database connection
 
 ?>
@@ -119,12 +131,7 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
         <i class="fas fa-palette"></i>
         <h3>Your Artwork Posts</h3>
         <!-- Fetch the number of artwork posts for the current user -->
-        <?php 
-        // Fetch the number of posts made by the user
-        $userPostsQuery = "SELECT COUNT(artwork_id) FROM artwork WHERE artist_id = '$user_id'"; 
-        $userPostsResult = $conn->query($userPostsQuery);
-        $userPosts = $userPostsResult->fetch_row()[0];
-      ?>
+
       <p><?php echo number_format($userPosts); ?> Posts</p>
       </div>
     </section>
@@ -160,4 +167,4 @@ $totalMessages = $totalMessagesResult->fetch_row()[0];
 </html>
 <?
 
-    // $conn->close();
+
