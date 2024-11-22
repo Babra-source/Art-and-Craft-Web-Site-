@@ -37,6 +37,9 @@ $result = $conn->query($sql);
                 <hr>
                 <a href="../view/showcase.php"><img src="../assets/images/display.png" alt="Showcase"> Showcase</a>
                 <hr>
+                
+                <a href="../view/dashboard.php"><img src="../assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
+                <hr>
                 <!-- Add link to trigger the modal -->
                 <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a>
                 <hr>
@@ -85,27 +88,30 @@ $result = $conn->query($sql);
                     <div class="action-container">
                         <!-- Love Button -->
                         <div class="button-row">
-                        <button class="action-button love-button">
+                        <button class="action-button love-button" id="like-button">
                             <i class="fa-solid fa-heart fa-2x"></i>
                             <span id="like-count"><?php echo $like_count; ?></span> Likes
                         </button>
+
                         
-                        <!-- Comment Button -->
-                        <button class="action-button comment-button">
-                            <i class="fa-solid fa-comment fa-2x"></i>
-                            <span id="comment-count"><?php echo $comment_count; ?></span> Comments
-                        </button>
-                        </div>
-                        
-                        <!-- Comment Section (hidden initially) -->
-                        <div class="comment-section" style="display: none;">
-                            <textarea placeholder="Add a comment..." class="comment-box"></textarea>
-                            <button class="comment-submit">Post</button>
-                    </div>
+                        <button class="action-button comment-button" data-artwork-id="<?php echo $artwork_id; ?>">
+                                    <i class="fa-solid fa-comment fa-2x"></i>
+                                    <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
+                                </button>
+
+                                <!-- Hidden comment section (initially hidden) -->
+                                <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
+                                    <textarea placeholder="Add a comment..." class="comment-box"></textarea>
+                                    <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
+                                    <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
+                            </div>
+
                     </div>
 
 
                 </article>
+
+                <script src="../assets/js/comment.js"></script>
         <?php
             }
         } else {
@@ -165,12 +171,27 @@ $result = $conn->query($sql);
 
 
 
-    <script src="../assets/js/likes_comment.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#like-button').click(function() {
+        var likeCount = $('#like-count').text();
+
+        // Perform AJAX request to increment the like count
+        $.ajax({
+            url: '../actions/like_handler.php',  // PHP file to handle the like increment
+            type: 'POST',
+            data: { action: 'like' },  // Send a signal to like
+            success: function(response) {
+                // Update the like count on success
+                $('#like-count').text(response.newLikeCount);
+            }
+        });
+    });
+});
 
 
-
-    <!-- Modal JavaScript -->
-    <script>
         // Get the modal and the button to open it
         var modal = document.getElementById("uploadModal");
         var btn = document.getElementById("uploadLink");
@@ -192,15 +213,62 @@ $result = $conn->query($sql);
                 modal.style.display = "none";
             }
         }
+
+
+        $(document).ready(function() {
+    // Handle the comment button click event
+    $('.comment-button').click(function() {
+        var artworkId = $(this).data('artwork-id');
+        
+        // Toggle the visibility of the comment section
+        $('#comment-section-' + artworkId).toggle();
+        
+        // Fetch existing comments for the artwork via AJAX
+        $.ajax({
+            url: '../actions/get_comments.php',
+            type: 'POST',
+            data: { artwork_id: artworkId },
+            success: function(response) {
+                // Populate the comment section with existing comments
+                $('#comments-list-' + artworkId).html(response);
+            }
+        });
+    });
+
+    // Handle comment submission
+    $('.comment-submit').click(function() {
+        var artworkId = $(this).data('artwork-id');
+        var commentText = $('#comment-section-' + artworkId).find('.comment-box').val();
+        var userId = <?php echo $_SESSION['user_id']; ?>; // Assuming you are storing user_id in session
+        
+        if (commentText.trim() != '') {
+            $.ajax({
+                url: '../actions/post_comment.php',
+                type: 'POST',
+                data: {
+                    artwork_id: artworkId,
+                    comment_text: commentText,
+                    user_id: userId
+                },
+                success: function(response) {
+                    // Reload the comments after submission
+                    $('#comments-list-' + artworkId).html(response);
+                    $('#comment-section-' + artworkId).find('.comment-box').val(''); // Clear the input field
+                }
+            });
+        } else {
+            alert('Please write a comment before posting.');
+        }
+    });
+});
+
+
     </script>
 </body>
 
 
 
 </body>        
-
-
-
 
 
 

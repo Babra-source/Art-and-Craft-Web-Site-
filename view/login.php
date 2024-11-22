@@ -41,7 +41,7 @@
            passwordError.textContent = "";
 
            
-           var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+           var emailPattern = ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$;
            if (email === "") {
                errorMessages.push("Email is required!");
            } else if (!emailPattern.test(email)) {
