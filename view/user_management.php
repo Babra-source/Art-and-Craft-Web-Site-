@@ -20,7 +20,7 @@ $user_id = $_SESSION['user_id'];
 $email = $_SESSION['email'];
 $role = $_SESSION['role']; // 1 for Super Admin, 2 for regular User
 
-// Function to fetch all users
+// Function to fetch all us ers
 function fetchUsers($conn) {
     $stmt = $conn->prepare("SELECT user_id, fname, lname, email, role, created_at FROM users");
     $stmt->execute();
