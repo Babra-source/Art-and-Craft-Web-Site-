@@ -176,22 +176,7 @@ $result = $conn->query($sql);
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#like-button').click(function() {
-        var likeCount = $('#like-count').text();
 
-        // Perform AJAX request to increment the like count
-        $.ajax({
-            url: '../actions/like_handler.php',  // PHP file to handle the like increment
-            type: 'POST',
-            data: { action: 'like' },  // Send a signal to like
-            success: function(response) {
-                // Update the like count on success
-                $('#like-count').text(response.newLikeCount);
-            }
-        });
-    });
-});
 
 
         // Get the modal and the button to open it
@@ -215,54 +200,6 @@ $(document).ready(function() {
                 modal.style.display = "none";
             }
         }
-
-
-        $(document).ready(function() {
-    // Handle the comment button click event
-    $('.comment-button').click(function() {
-        var artworkId = $(this).data('artwork-id');
-        
-        // Toggle the visibility of the comment section
-        $('#comment-section-' + artworkId).toggle();
-        
-        // Fetch existing comments for the artwork via AJAX
-        $.ajax({
-            url: '../actions/get_comments.php',
-            type: 'POST',
-            data: { artwork_id: artworkId },
-            success: function(response) {
-                // Populate the comment section with existing comments
-                $('#comments-list-' + artworkId).html(response);
-            }
-        });
-    });
-
-    // Handle comment submission
-    $('.comment-submit').click(function() {
-        var artworkId = $(this).data('artwork-id');
-        var commentText = $('#comment-section-' + artworkId).find('.comment-box').val();
-        var userId = <?php echo $_SESSION['user_id']; ?>; // Assuming you are storing user_id in session
-        
-        if (commentText.trim() != '') {
-            $.ajax({
-                url: '../actions/post_comment.php',
-                type: 'POST',
-                data: {
-                    artwork_id: artworkId,
-                    comment_text: commentText,
-                    user_id: userId
-                },
-                success: function(response) {
-                    // Reload the comments after submission
-                    $('#comments-list-' + artworkId).html(response);
-                    $('#comment-section-' + artworkId).find('.comment-box').val(''); // Clear the input field
-                }
-            });
-        } else {
-            alert('Please write a comment before posting.');
-        }
-    });
-});
 
 
     </script>

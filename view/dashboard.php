@@ -94,32 +94,77 @@ $recentArtworksResult = $conn->query($recentArtworksQuery);
         </div>
       </section>
 
-      <section class="dashboard-activities">
-        <h2>Recent Activities</h2>
-        <ul class="activity-list">
+
+
+
           <li>
-            <span class="activity-icon"><i class="fas fa-shopping-bag"></i></span>
-            <div class="activity-details">
-              <h3>New Order Received</h3>
-              <p>Order #123456 - Ceramic Pot</p>
-              <p class="activity-timestamp">2 hours ago</p>
-            </div>
+                <?php
+                // Fetch the top two new contact messages from the database
+                $query = "SELECT message_id,message_content, created_at FROM contact_messages ORDER BY created_at DESC LIMIT 2";
+                $result = $conn->query($query);
+
+                if ($result->num_rows > 0) {
+                    while ($message = $result->fetch_assoc()) {
+                        // Set dynamic icon and title for message activity
+                        $icon = 'fas fa-comment';
+                        $activityTitle = 'New Message from Customer';
+                        
+                        // Calculate the timestamp using the time_ago function
+                        $timeAgo = $message['created_at'];
+                        
+                        // Display the message activity
+                        echo '<span class="activity-icon"><i class="fas fa-envelope"></i></span>';
+                        echo '<div class="activity-details">';
+                        echo '<h3>' . $activityTitle . '</h3>';
+                        echo '<p>' . htmlspecialchars($message['message_content']) . '</p>'; // Use 'message' column instead of 'comment_text'
+                        echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
+                        echo '</div>';
+                        echo '<br>';
+                        
+                    }
+                } else {
+                    echo '<li>No new contact messages.</li>';
+                }
+                ?>
           </li>
+
+
+
+
+
+
+
           <li>
-            <span class="activity-icon"><i class="fas fa-comment"></i></span>
-            <div class="activity-details">
-              <h3>New Message from Customer</h3>
-              <p>Feedback on "Timeless Grace" painting</p>
-              <p class="activity-timestamp">1 day ago</p>
-            </div>
-          </li>
-          <li>
-            <span class="activity-icon"><i class="fas fa-palette"></i></span>
-            <div class="activity-details">
-              <h3>New Product Added</h3>
-              <p>Handmade Woven Basket</p>
-              <p class="activity-timestamp">3 days ago</p>
-            </div>
+          <?php
+                // Fetch the top two new contact messages from the database
+                $query = "SELECT title,art_type, created_at FROM artwork ORDER BY created_at DESC LIMIT 2";
+                $result = $conn->query($query);
+
+                if ($result->num_rows > 0) {
+                    while ($message = $result->fetch_assoc()) {
+                        // Set dynamic icon and title for message activity
+                        $icon = 'fas fa-palette';
+                        $activityTitle = 'New Posts';
+                        
+                        // Calculate the timestamp using the time_ago function
+                        $timeAgo = $message['created_at'];
+                        
+                        // Display the message activity
+                        echo '<span class="activity-icon"><i class="fas fa-palette"></i></span>';
+                        echo '<div class="activity-details">';
+                        echo '<h3>' . $activityTitle . '</h3>';
+                        echo '<p>' . htmlspecialchars($message['title']) . '</p>'; // Use 'message' column instead of 'the title'
+                        echo '<p>' . htmlspecialchars($message['art_type']) . '</p>'; // Use 'message' column instead of 'the title'
+
+                        echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
+                        echo '</div>';
+                        echo '<br>';
+                        
+                    }
+                } else {
+                    echo '<li>No new Post.</li>';
+                }
+                ?>
           </li>
         </ul>
       </section>
