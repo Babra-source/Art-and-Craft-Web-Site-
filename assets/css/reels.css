@@ -205,14 +205,16 @@ a {
 
 /* Artwork Card */
 .artwork-card {
-    margin-bottom: 15px; /* Reduce space between cards */
+    margin-bottom: 100px; /* Reduce space between cards */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #f3f3f3;
+    border: 1px solid #000000;
 }
 
 .image-container {
+    padding: 10px;
     width: 100%;
     position: relative;
     display: flex;
@@ -220,18 +222,18 @@ a {
 }
 
 .image-container img {
-    width: 80%; /* Make the image smaller */
+    width: 60%; /* Make the image smaller */
     height: auto;
     border-radius: 10px 10px 0 0;
-    max-height: 300px; /* Limit the height of the image */
+    max-height: 400px; /* Limit the height of the image */
     object-fit: cover;
 }
 
 .art-description {
     padding: 10px; /* Slightly reduce padding */
-    font-size: 14px; /* Reduce font size for a compact look */
-    color: #333;
-    text-align: center;
+    font-size: 15px; /* Reduce font size for a compact look */
+    color: #000000;
+    text-align: left;
 }
 
 /* Interaction Section */
@@ -244,57 +246,73 @@ a {
     gap: 8px;
 }
 
+.action-container {
+    display: flex;
+    flex-direction: column; /* Align buttons and comment section vertically */
+    align-items: flex-start; /* Align content to the left */
+    margin-left: 10px; /* Add some space from the left edge */
+}
+
+.button-row {
+    display: flex; /* Place buttons side by side */
+    gap: 10px; /* Add space between buttons */
+    margin-bottom: 10px; /* Add space below the buttons */
+}
+
 .action-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 15px; /* Smaller button size */
-    border: none;
-    border-radius: 20px;
+    margin-bottom: 10px; /* Add space between buttons */
+    padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
 }
 
-.love-button {
-    background-color: #ff6b6b;
-    color: white;
+.action-button:hover {
+    background-color: #e0e0e0;
 }
 
-.like-button {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.action-button i {
-    margin-right: 5px; /* Reduce space for icons */
-    font-size: 16px; /* Adjust icon size */
+.comment-section {
+    width: 100%;
+    margin-top: 10px;
 }
 
 .comment-box {
-    width: 90%; /* Reduce textarea width */
-    padding: 8px; /* Compact padding */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 12px; /* Smaller font */
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #050505;
+    border-radius: 4px;
     resize: none;
 }
 
 .comment-submit {
-    padding: 8px 15px; /* Smaller button size */
-    background-color: #007bff;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #020202;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 12px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .comment-submit:hover {
-    background-color: #0056b3;
+    background-color: #000000;
 }
 
+.love-button i {
+    color: #fc0101; /* Red for "Love" icon */
+}
+
+/* Specific color for the Comment button icon */
+.comment-button i {
+    color: #a7bad6; /* Blue for "Comment" icon */
+}
 
 /* Modal Styles */
 .modal {
@@ -348,3 +366,17 @@ a {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
