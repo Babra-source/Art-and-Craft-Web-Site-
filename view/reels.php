@@ -45,6 +45,8 @@ $result = $conn->query($sql);
                 <hr>
                 <a href="../view/contacts.php"><img src="../assets/images/feedback.png" alt="home"> Contact</a>
                 <hr>
+                <a href="../view/about_page.php"><img src="../assets/images/about.png" alt="about">About</a>
+                <hr>
             </nav>
         </aside> <!-- Close the sidebar here -->
 
