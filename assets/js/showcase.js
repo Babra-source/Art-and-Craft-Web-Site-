@@ -32,16 +32,16 @@ function addArtwork() {
 
 
 
-//function to handle the "like" feature
-function toggleLike(button) {
-    if (button.classList.contains('liked')) {
-        button.classList.remove('liked');
-        button.textContent = '❤️'; // Reset to unliked heart
-    } else {
-        button.classList.add('liked');
-        button.textContent = '💖'; // Change to liked heart
-    }
-}
+// //function to handle the "like" feature
+// function toggleLike(button) {
+//     if (button.classList.contains('liked')) {
+//         button.classList.remove('liked');
+//         button.textContent = '❤️'; // Reset to unliked heart
+//     } else {
+//         button.classList.add('liked');
+//         button.textContent = '💖'; // Change to liked heart
+//     }
+// }
 
 
 //function for filtering artworks when there is input in the search button

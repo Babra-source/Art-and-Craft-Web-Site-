@@ -192,6 +192,13 @@ $result = $conn->query($sql);
                 modal.style.display = "none";
             }
         }
+
+        // like button functionality
+        document.querySelectorAll('.like-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 

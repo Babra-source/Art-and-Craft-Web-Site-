@@ -4,452 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Showcase - Art and Crafts Hub</title>
-    <link rel="stylesheet" href="../assets/css/showcase.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* styles for the like button, upload button, and fade animations */
-        .like-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 1.5em;
-            color: #ff6b6b;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .like-button.active {
-            color: #ff3b3b;
-            transform: scale(1.1);
-        }
-        .upload-button {
-            display: block;
-            margin: 1em auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .artwork-card {
-            opacity: 1;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-    </style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="logo">
-           
-            <img src="assets/images/logo-removebg-preview (1).png" alt="Arts and Crafts Hub Logo">
-            
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="../assets/images/newlogo.avif" alt="Logo" style="height: 50px;">
+            <style>
+                img{
+                    height: 500%;
+                    width: 10%;
+                }
+            </style>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="../index.html" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="../view/reels.php" class="nav-link text-white">Arts Reels</a></li>
+                    <li class="nav-item"><a href="contacts.php" class="nav-link text-white">Contacts</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../view/reels.php">Arts Reels</a></li>
-                <li><a href="contacts.php">Contacts</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main class="showcase-container">
-        <section class="hero-section">
-            <h1 class="main-title">Find artwork you'll <span class="highlight">Love</span></h1>
-            <p class="subtitle">Craft Your Way: Explore a World of Creativity</p>
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" placeholder="Search for artwork..." class="search-input">
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            <h1>Explore Artwork You'll <span class="text-primary">Love</span></h1>
+            <p class="text-muted">Craft Your Way: Explore a World of Creativity</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search for artwork...">
             </div>
-
-            
-            <!-- Upload Button -->
-            <button class="upload-button">Upload New Artwork</button>
         </section>
 
-        <section class="artwork-grid">
-            <!-- Artwork Card 1 -->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/art5.jpg" alt="Ceramic Pot">
-                    
-                    <div class="overlay">
-                        <p>Beautifully handcrafted, this ceramic pot adds a touch of elegance to any space. Its smooth matte finish and earthy tones make it perfect for both plants and décor.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Ceramic Pot</h3>
-                    <p class="artist">by Sandra Darko</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+        <section>
+            <h2 class="mb-4">Paintings</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Artwork Card Example -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/art7.jpeg" class="card-img-top" alt="wall painting">
+                        <div class="card-body">
+                            <h5 class="card-title">Sunset nature</h5>
+                            <p class="card-text text-muted">By Garo_garo</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <!-- Artwork Card 2 -->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/art3.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Stunning portrait of a woman, capturing timeless beauty and emotion. With rich colors and intricate details, this painting brings elegance and depth to any room.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Timeless Grace</h3>
-                    <p class="artist">by Mensah Kevin</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-
-            <!-- Artwork Card 3 -->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/art1.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Bold and striking, this skull painting combines dark elegance with intricate detail. The powerful imagery evokes mystery and reflection, making it a captivating statement piece for any modern or eclectic space.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                    
-                </div>
-                <div class="card-content">
-                    <h3>Artistic skull</h3>
-                    <p class="artist">by Budud Yaw</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    
-                </div>
-            </article>
-
-
-            <!-- Artwork Card 4 -->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/art2.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
+                <!-- Add more cards here -->
+            </div>
+        </section>
 
-            
-            <!-- Artwork Card 5 -->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/Mystical.jpg" alt="Mystical">
-                    
-                    <div class="overlay">
-                        <p>"Mystical" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+        <section class="mt-5">
+            <h2 class="mb-4">Sculpture</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Artwork Card Example -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..assets/images/art5.jpg" class="card-img-top" alt="Ceramic Pot">
+                        <div class="card-body">
+                            <h5 class="card-title">Ceramic Pot</h5>
+                            <p class="card-text text-muted">By Sandra Darko</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>C:\xampp\htdocs\Art-and-Craft-Web-Site-\assets\images\download (4).jpeg
                     </div>
                 </div>
-            </article>
+                <!-- Add more cards here -->
+            </div>
+        </section>
 
-            
-            <!-- Artwork Card 6-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="assets/images/art2.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+        <section class="mt-5">
+            <h2 class="mb-4">Photography</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                    <div class="card h-100">
+                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            
-            <!-- Artwork Card 7-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="art2.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-
-            
-            <!-- Artwork Card 8-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="art2.jpg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
+                <!-- Add artwork cards for Photography -->
+            </div>
+        </section>
 
+        <section class="mt-5">
+            <h2 class="mb-4">Digital Art</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            
-            <!-- Artwork Card 9-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="artwork.jpeg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>Guardian of the Shore" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+            <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/indigenous.jpg" class="card-img-top" alt="Indigenous">
+                        <div class="card-body">
+                            <h5 class="card-title">indigenous</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-
-            
-            <!-- Artwork Card 10-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="indigenous.jpeg" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>indigenous" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
+                <!-- Add artwork cards for Digital Art -->
+            </div>
+        </section>
 
-
-            
-            <!-- Artwork Card 11-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="resin bowl.png" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>The resin bowl" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+        <section class="mt-5">
+            <h2 class="mb-4">Crafts</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/download (3).jpeg" class="card-img-top" alt="beaded">
+                        <div class="card-body">
+                            <h5 class="card-title">Beaded Basket</h5>
+                            <p class="card-text text-muted">By Abigail</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-
-            <!-- Artwork Card 12-->
-            <article class="artwork-card">
-                <div class="image-container">
-                    <img src="resin bowl.png" alt="Timeless Grace">
-                    
-                    <div class="overlay">
-                        <p>The resin bowl" is a striking artwork by Ebele Nwosu, a contemporary artist celebrated for her powerful representations of African womanhood and nature. Her work explores themes of strength, motherhood, and a deep connection to the earth, blending cultural symbolism with vivid landscapes to evoke deep emotions.</p>
-                    </div>
-
-                    <button class="like-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-
-                </div>
-                <div class="card-content">
-                    <h3>Guardian of the Shore</h3>
-                    <p class="artist">by Mercy Chidera</p>
-                    <div class="rating">
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star active">★</span>
-                        <span class="star">★</span>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/art3.jpg" class="card-img-top" alt="digital_painting">
+                        <div class="card-body">
+                            <h5 class="card-title">Timeless Grace</h5>
+                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add artwork cards for Other -->
+            </div>
         </section>
     </main>
 
-    <script>
-        // Like button functionality
-        document.querySelectorAll('.like-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-            });
-        });
-    
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.querySelector('.search-input');
-            const artworkCards = document.querySelectorAll('.artwork-card');
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>© 2024 Art and Crafts Hub. All Rights Reserved.</p>
+    </footer>
 
-            searchInput.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase().trim();
-
-                artworkCards.forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const artist = card.querySelector('.artist').textContent.toLowerCase();
-                    const description = card.querySelector('.overlay p').textContent.toLowerCase();
-                    const searchableContent = `${title} ${artist} ${description}`;
-
-                    if (searchTerm === '' || searchableContent.includes(searchTerm)) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-
-        // Upload Button functionality (as a placeholder)
-        document.querySelector('.upload-button').addEventListener('click', function() {
-            alert("Upload New Artwork functionality coming soon!");
-        });
-    </script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
