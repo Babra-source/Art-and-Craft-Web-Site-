@@ -20,6 +20,10 @@ $result = $conn->query($sql);
     <title>Arts and Crafts | Art Reel</title>
     <link rel="stylesheet" href="../assets/css/reels.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
 
 </head>
 
@@ -54,24 +58,53 @@ $result = $conn->query($sql);
                 $title = $row['title'];
                 $description = $row['description'];
                 $image_path = $row['image_path'];
+
+
+                // Fetch the number of likes for this artwork
+                $like_sql = "SELECT COUNT(*) AS like_count FROM likes WHERE user_id = $artwork_id";
+                $like_result = $conn->query($like_sql);
+                $like_row = $like_result->fetch_assoc();
+                $like_count = $like_row['like_count'];
+
+                // Fetch the number of comments for this artwork
+                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE user_id= $artwork_id";
+                $comment_result = $conn->query($comment_sql);
+                $comment_row = $comment_result->fetch_assoc();
+                $comment_count = $comment_row['comment_count'];
         ?>
                 <article class="artwork-card">
                     <div class="image-container">
                         <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($title); ?>">
                     </div>
                     <p class="art-description">
-                        <?php echo htmlspecialchars($description); ?>
+                     Description :   <?php echo htmlspecialchars($description); ?>
                     </p>
-                    <div class="interaction-section">
+                    <hr style="border: 1px solid black;">
+                    
+
+                    <div class="action-container">
+                        <!-- Love Button -->
+                        <div class="button-row">
                         <button class="action-button love-button">
-                            <i class="fas fa-heart"></i> Love
+                            <i class="fa-solid fa-heart fa-2x"></i>
+                            <span id="like-count"><?php echo $like_count; ?></span> Likes
                         </button>
-                        <button class="action-button like-button">
-                            <i class="fas fa-thumbs-up"></i> Like
+                        
+                        <!-- Comment Button -->
+                        <button class="action-button comment-button">
+                            <i class="fa-solid fa-comment fa-2x"></i>
+                            <span id="comment-count"><?php echo $comment_count; ?></span> Comments
                         </button>
-                        <textarea placeholder="Add a comment..." class="comment-box"></textarea>
-                        <button class="comment-submit">Post</button>
+                        </div>
+                        
+                        <!-- Comment Section (hidden initially) -->
+                        <div class="comment-section" style="display: none;">
+                            <textarea placeholder="Add a comment..." class="comment-box"></textarea>
+                            <button class="comment-submit">Post</button>
                     </div>
+                    </div>
+
+
                 </article>
         <?php
             }
@@ -100,14 +133,6 @@ $result = $conn->query($sql);
 
         </aside>
 
-     
-        
-        
-
-
-
-
-  
 
     <!-- Modal for Upload Artwork Form -->
     <div id="uploadModal" class="modal">
@@ -137,6 +162,10 @@ $result = $conn->query($sql);
             </div>
         </div>
     </div>
+
+
+
+    <script src="../assets/js/likes_comment.js"></script>
 
 
 
