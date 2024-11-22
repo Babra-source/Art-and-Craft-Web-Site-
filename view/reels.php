@@ -37,10 +37,15 @@ $result = $conn->query($sql);
                 <hr>
                 <a href="../view/showcase.php"><img src="../assets/images/display.png" alt="Showcase"> Showcase</a>
                 <hr>
+                
+                <a href="../view/dashboard.php"><img src="../assets/images/dashboard.png" alt="dashboard"> Dashboard</a>
+                <hr>
                 <!-- Add link to trigger the modal -->
                 <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a>
                 <hr>
                 <a href="../view/contacts.php"><img src="../assets/images/feedback.png" alt="home"> Contact</a>
+                <hr>
+                <a href="../view/about_page.php"><img src="../assets/images/about.png" alt="about">About</a>
                 <hr>
             </nav>
         </aside> <!-- Close the sidebar here -->
@@ -85,27 +90,30 @@ $result = $conn->query($sql);
                     <div class="action-container">
                         <!-- Love Button -->
                         <div class="button-row">
-                        <button class="action-button love-button">
+                        <button class="action-button love-button" id="like-button">
                             <i class="fa-solid fa-heart fa-2x"></i>
                             <span id="like-count"><?php echo $like_count; ?></span> Likes
                         </button>
+
                         
-                        <!-- Comment Button -->
-                        <button class="action-button comment-button">
-                            <i class="fa-solid fa-comment fa-2x"></i>
-                            <span id="comment-count"><?php echo $comment_count; ?></span> Comments
-                        </button>
-                        </div>
-                        
-                        <!-- Comment Section (hidden initially) -->
-                        <div class="comment-section" style="display: none;">
-                            <textarea placeholder="Add a comment..." class="comment-box"></textarea>
-                            <button class="comment-submit">Post</button>
-                    </div>
+                        <button class="action-button comment-button" data-artwork-id="<?php echo $artwork_id; ?>">
+                                    <i class="fa-solid fa-comment fa-2x"></i>
+                                    <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
+                                </button>
+
+                                <!-- Hidden comment section (initially hidden) -->
+                                <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
+                                    <textarea placeholder="Add a comment..." class="comment-box"></textarea>
+                                    <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
+                                    <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
+                            </div>
+
                     </div>
 
 
                 </article>
+
+                <script src="../assets/js/comment.js"></script>
         <?php
             }
         } else {
@@ -165,12 +173,12 @@ $result = $conn->query($sql);
 
 
 
-    <script src="../assets/js/likes_comment.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
 
 
 
-    <!-- Modal JavaScript -->
-    <script>
         // Get the modal and the button to open it
         var modal = document.getElementById("uploadModal");
         var btn = document.getElementById("uploadLink");
@@ -192,15 +200,14 @@ $result = $conn->query($sql);
                 modal.style.display = "none";
             }
         }
+
+
     </script>
 </body>
 
 
 
 </body>        
-
-
-
 
 
 
