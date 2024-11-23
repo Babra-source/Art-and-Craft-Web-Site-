@@ -60,10 +60,10 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="../assets/images/art2.jpg" class="card-img-top" alt="painting">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <h5 class="card-title">Carer</h5>
+                            <p class="card-text text-muted">By Mensah_00</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
@@ -71,33 +71,45 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
                         <div class="card-body">
                             <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <p class="card-text text-muted">By Joe_Kevin</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
                 </div>
-                <!-- Add more cards here -->
+                
             </div>
         </section>
 
         <section class="mt-5">
             <h2 class="mb-4">Sculpture</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <!-- Artwork Card Example -->
+                <!-- Artwork Card-->
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..assets/images/art5.jpg" class="card-img-top" alt="Ceramic Pot">
+                        <img src="../assets/images/download (4).jpeg" class="card-img-top" alt="mortar">
                         <div class="card-body">
-                            <h5 class="card-title">Ceramic Pot</h5>
-                            <p class="card-text text-muted">By Sandra Darko</p>
+                            <h5 class="card-title">Wooden mortar-pestle</h5>
+                            <p class="card-text text-muted">By Bilaiz</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
-                        </div>C:\xampp\htdocs\Art-and-Craft-Web-Site-\assets\images\download (4).jpeg
+                        </div>
                     </div>
                 </div>
-                <!-- Add more cards here -->
+
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/spoon.jpeg" class="card-img-top" alt="spoon">
+                        <div class="card-body">
+                            <h5 class="card-title">Wooden spoon</h5>
+                            <p class="card-text text-muted">By Bilaiz</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div> 
+                    </div>
+                </div>
+
+               
             </div>
         </section>
 
@@ -185,7 +197,7 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="../assets/images/art4.jpg" class="card-img-top" alt="decor">
                         <div class="card-body">
                             <h5 class="card-title">Timeless Grace</h5>
                             <p class="card-text text-muted">By Mensah Kevin</p>
@@ -196,7 +208,7 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="../assets/images/art3.jpg" class="card-img-top" alt="digital_painting">
+                        <img src="../assets/images/art6.jpg" class="card-img-top" alt="digital_painting">
                         <div class="card-body">
                             <h5 class="card-title">Timeless Grace</h5>
                             <p class="card-text text-muted">By Mensah Kevin</p>

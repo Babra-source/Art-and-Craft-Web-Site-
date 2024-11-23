@@ -8,11 +8,11 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #000000;
 }
 
 header {
-    background: #623c9b;
+    background: #221733;
     color: #fff;
     padding: 10px 20px;
     text-align: center;
@@ -59,13 +59,13 @@ nav .nav-links a:hover {
 
 .about h1 {
     font-size: 36px;
-    color: #2d3436;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .about p {
     font-size: 18px;
-    color: #636e72;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -75,7 +75,7 @@ nav .nav-links a:hover {
 
 .team h2 {
     font-size: 28px;
-    color: #2d3436;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -88,7 +88,7 @@ nav .nav-links a:hover {
 
 .team-member {
     max-width: 300px;
-    background: #d9b1ff;
+    background: #80b3ca;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,18 +104,18 @@ nav .nav-links a:hover {
 
 .team-member h3 {
     font-size: 22px;
-    color: #2d3436;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .team-member p {
     font-size: 16px;
-    color: #636e72;
+    color: #000000;
 }
 
 .mission h2 {
     font-size: 28px;
-    color: #2d3436;
+    color: #1b1d1d;
     margin-top: 40px;
     margin-bottom: 20px;
 }
@@ -126,12 +126,12 @@ nav .nav-links a:hover {
     max-width: 600px;
     text-align: left;
     padding-left: 20px;
-    color: #636e72;
+    color: #141414;
 }
 
 /* Footer */
 .footer {
-    background: #2d3436;
+    background: #221733;
     color: #fff;
     padding: 10px 0;
     text-align: center;
