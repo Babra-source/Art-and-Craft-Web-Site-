@@ -20,22 +20,22 @@ $user_id = $_SESSION['user_id'];
 $email = $_SESSION['email'];
 $role = $_SESSION['role']; // 1 for Super Admin, 2 for regular User
 
-<<<<<<< HEAD
 // Function to fetch all us ers
-=======
-// Restrict access to Super Admin (role 1) only
-if ($role != 1) {
-    header('Location: ../view/dashboard.php');
-    exit;
-}
-
-// Function to fetch all users
->>>>>>> 16166d3b2bb883cad380651e0cd0c71ab16b90c3
 function fetchUsers($conn) {
     $stmt = $conn->prepare("SELECT user_id, fname, lname, email, role FROM users");
     $stmt->execute();
     return $stmt->get_result();
 }
+
+//function to fetch all the users 
+
+function fetchArtwork($conn) {
+    $stmt = $conn->prepare("SELECT artwork_id, title, art_type, created_at FROM artwork");
+    $stmt->execute();
+    return $stmt->get_result();
+}
+
+
 
 // Handle user creation
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_user'])) {
@@ -87,7 +87,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
     $stmt->execute();
     header("Location: user_management.php");
     exit;
+
 }
+
+    // Handle artwork deletion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
+    $artwork_id = $_POST['artwork_id'];
+
+    // Prepare and execute the deletion query
+    $stmt = $conn->prepare("DELETE FROM artwork WHERE artwork_id = ?");
+    $stmt->bind_param("i", $artwork_id);
+    $stmt->execute();
+
+    // Redirect after deletion
+    header("Location: user_management.php"); // or the relevant page
+    exit;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -132,6 +149,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
                             <a class="nav-link text-dark d-flex align-items-center" href="../view/contacts.php">
                                 <img src="../assets/images/feedback.png" alt="Contact" class="me-2" width="24" height="24"> Contact
                             </a>
+                            <hr>
+                            <a class="nav-link text-dark d-flex align-items-center" href="#Users List">
+                                <img src="../assets/images/users.png" alt="home"class="me-2" width="24" height="24"> Users
+                            </a>
+
+                            <hr>
+                            
+                            <a class="nav-link text-dark d-flex align-items-center" href="#UserUploadsSection">
+                                <img src="../assets/images/post.png" alt="home"class="me-2" width="24" height="24"> User Artwork Uploads
+                            </a>
+                            <hr>
+
+                            
 
                         </nav>
                     </aside>
@@ -140,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
                     <main class="col-md-9" style="margin-left: 220px;">
 
                         <header class="bg-primary text-white p-3">
-                            <h1 class="h3">User Management</h1>
+                        <h1 id="Users List">User Management</h1>
                         </header>
                         <div class="container my-4">
                         <h2 class="text-center">Manage Users</h2>
@@ -163,7 +193,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
                 </div>
             </div>
             <button type="submit" name="create_user" class="btn btn-success mt-3">Add User</button>
+
         </form>
+
+
 
         <!-- Display Users in Table -->
         <div class="table-responsive">
@@ -206,10 +239,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
                 </tbody>
             </table>
         </div>
-                </div>
-                    </main>
-                </div>
-            </div>
+        
+
+        
+        <h1 id="UserUploadsSection">Artwork Posts</h1>
+
+
+
+        <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Art Type</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Fetch all artwork from the database
+            $artworkResult = fetchArtwork($conn);  // Assuming this function fetches artwork data from the DB
+
+            if ($artworkResult->num_rows > 0) {
+                // Loop through each artwork and display in the table
+                while ($artwork = $artworkResult->fetch_assoc()) {
+                    echo "<tr>
+                            <td>{$artwork['title']}</td>
+                            <td>{$artwork['art_type']}</td>
+                            
+                            <td>{$artwork['created_at']}</td>
+                            <td>
+                            <form method='POST' class='d-inline'>
+                                    <input type='hidden' name='artwork_id' value='{$artwork['artwork_id']}'>
+                                    <button type='submit' name='delete_art' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this artwork?\");'>Delete</button>
+                                </form>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>No artwork found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
+
+        
 
 
    

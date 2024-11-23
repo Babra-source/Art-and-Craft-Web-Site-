@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <nav>
-            <a href="index.html" class="logo">The Arts and Crafts Hub</a>
+            <a href="../index.html" class="logo">The Arts and Crafts Hub</a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home Page</a></li>
                 <li><a href="showcase.php">Showcase</a></li>
