@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Showcase - Art and Crafts Hub</title>
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
+
+
+
 <body>
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <img src="../assets/images/newlogo.avif" alt="Logo" style="height: 50px;">
-            <style>
+            <h2>Arts and Crafts hub</h2>
+            <!-- <img src="../assets/images/newlogo.avif" alt="Logo" style="height: 50px;"> -->
+            <!-- <style>
                 img{
                     height: 500%;
                     width: 10%;
                 }
-            </style>
+            </style> -->
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a href="../index.html" class="nav-link text-white">Home</a></li>

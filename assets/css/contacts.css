@@ -14,7 +14,7 @@ body {
 
 /* Header */
 header {
-    background: #0078d7;
+    background: #0f161b;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -60,7 +60,7 @@ header nav ul li a:hover {
 
 .contact-info h2 {
     font-size: 1.8rem;
-    color: #0078d7;
+    color: #10171d;
 }
 
 .contact-info ul {
@@ -74,7 +74,7 @@ header nav ul li a:hover {
 }
 
 .contact-info ul li a {
-    color: #0078d7;
+    color: #10171d;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -97,7 +97,7 @@ header nav ul li a:hover {
 .contact-form h2 {
     font-size: 1.8rem;
     text-align: center;
-    color: #0078d7;
+    color: #10171d;
 }
 
 .contact-form form {
@@ -125,14 +125,14 @@ header nav ul li a:hover {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #0078d7;
-    box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+    border-color: #10171d;
+    box-shadow: 0 0 5px #10171d(0, 120, 215, 0.5);
 }
 
 .contact-form button {
     font-size: 1rem;
     padding: 0.8rem;
-    background-color: #0078d7;
+    background-color: #10171d;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -141,7 +141,7 @@ header nav ul li a:hover {
 }
 
 .contact-form button:hover {
-    background-color: #005bb5;
+    background-color: #10171d;
 }
 
 /* Responsive Design */

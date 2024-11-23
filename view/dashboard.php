@@ -33,6 +33,8 @@ $recentArtworksQuery = "SELECT title, created_at FROM artwork WHERE artist_id = 
 $recentArtworksResult = $conn->query($recentArtworksQuery);
 
 
+
+
 // Close the database connection
 
 ?>
@@ -58,6 +60,10 @@ $recentArtworksResult = $conn->query($recentArtworksQuery);
           <li><a href="../view/showcase.php">Showcase</a></li>
           <li><a href="../view/connect.php">Connect</a></li>
           <li><a href="../view/contacts.php">Contacts</a></li>
+          <?php if ($user_id == 1): ?>
+              <li><a href="../view/user_management.php">User Management</a></li>
+          <?php endif; ?>
+
           <li><a href="../view/login.php">Logout</a></li>
         </ul>
       </nav>

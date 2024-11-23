@@ -11,7 +11,7 @@
     <body style = "background-image: url('../assets/images/proArt1.jpg')">
 
     <div class="form-container">
-        <h1><b>The Arts and Crafts Hub|Sign Up</b></h1>
+        <h1><b>The Arts and Crafts Hub</b></h1>
 
         <p><b>Sign up</b></p>
         <form action="../actions/register_process.php" method = "post" onsubmit= "return validateForm()">
@@ -41,16 +41,14 @@
             passwordError.innerHTML = "";
             successMessage.textContent = "";
         
-            // Email pattern for Ashesi emails
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@ashesi\.edu\.gh$/;
-        
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
             // Email validation
             if (email === "") {
                 errorMessages.push("Email is required!");
             } else if (!emailPattern.test(email)) {
-                errorMessages.push("Invalid email format. Use @ashesi.edu.gh domain.");
+                errorMessages.push("Invalid email format. Please enter a valid email address.");
             }
-        
             // Password validations
             if (password.length < 8) {
                 errorMessages.push("Password must be at least 8 characters long!");
