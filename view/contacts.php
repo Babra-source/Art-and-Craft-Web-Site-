@@ -16,7 +16,7 @@
                 <li><a href="../view/dashboard.php">Dashboard</a></li>
                 <li><a href="../view/showcase.php">Showcase</a></li>
                 <li><a href="../view/reels.php">Arts Reels</a></li>
-                
+                <li><a href="../view/about_page.php">About Us</a></li>
              
 
             </ul>

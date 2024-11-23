@@ -6,24 +6,6 @@ include '../db/config.php';
 $sql = "SELECT * FROM artwork ORDER BY created_at DESC"; // Order by 'created_at' to show the most recent first
 $result = $conn->query($sql);
 
-
-// Assuming a database connection is established
-
-
-    // Fetch top 5 comments for each artwork (change the query as per your requirements)
-    $artwork_id = $artwork['artwork_id'];  // Use the actual artwork ID variable
-    $comment_query = "SELECT * FROM comments WHERE artwork_id = $artwork_id ORDER BY created_at DESC LIMIT 5";
-    $comments_result = $conn->query($comment_query);
-    $comments = [];
-
-    if ($comments_result->num_rows > 0) {
-        while ($row = $comments_result->fetch_assoc()) {
-            $comments[] = $row;
-        }
-    }
-
-
-
 ?>
 
 
@@ -37,9 +19,104 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts | Art Reel</title>
     <link rel="stylesheet" href="../assets/css/reels.css">
-    <script src="../assets/js/interaction.js"></script>
+    <!-- <script src="../assets/js/interaction.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+                    /* Style for the comment section */
+            .comment-section {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
 
+            /* Comment box style */
+            .comment-box {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 14px;
+                resize: vertical;
+                margin-bottom: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            /* Post button style */
+            .comment-submit {
+                padding: 8px 15px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: background-color 0.3s ease;
+            }
+
+            .comment-submit:hover {
+                background-color: #45a049;
+            }
+
+            /* Style for the list of comments */
+            .comments-list {
+                margin-top: 20px;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            .comment {
+                background-color: #ffffff;
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s ease;
+            }
+
+            .comment:hover {
+                transform: scale(1.02);
+            }
+
+            .comment p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .comment p strong {
+                color: #333;
+            }
+
+            .comment p small {
+                color: #888;
+                font-size: 12px;
+            }
+
+            /* Style for the comment button */
+            .action-button.comment-button {
+                padding: 8px 15px;
+                background-color: #009688;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+            }
+
+            .action-button.comment-button i {
+                margin-right: 8px;
+            }
+
+            .action-button.comment-button:hover {
+                background-color: #00796b;
+            }
+
+    </style>
 </head>
 
 
@@ -81,13 +158,13 @@ $result = $conn->query($sql);
 
 
                 // Fetch the number of likes for this artwork
-                $like_sql = "SELECT COUNT(*) AS like_count FROM likes WHERE user_id = $artwork_id";
+                $like_sql = "SELECT likes_count FROM artwork WHERE artwork_id = $artwork_id";
                 $like_result = $conn->query($like_sql);
                 $like_row = $like_result->fetch_assoc();
-                $like_count = $like_row['like_count'];
+                $like_count = $like_row['likes_count'];
 
                 // Fetch the number of comments for this artwork
-                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE user_id= $artwork_id";
+                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE artwork = $artwork_id";
                 $comment_result = $conn->query($comment_sql);
                 $comment_row = $comment_result->fetch_assoc();
                 $comment_count = $comment_row['comment_count'];
@@ -105,43 +182,37 @@ $result = $conn->query($sql);
                     <div class="action-container">
                         <!-- Love Button -->
                         <div class="button-row">
-                        <button class="action-button love-button" id="like-button">
-                            <i class="fa-solid fa-heart fa-2x"></i>
-                            <span id="like-count"><?php echo $like_count; ?></span> Likes
-                        </button>
+                        <form action="../actions/add_likes_actions.php" method="post">
+                            <input type = "hidden" value = "<?php echo $artwork_id; ?>" name = "artwork_id">
+                            <button type="submit" class="action-button love-button" id="like-button" data-artwork-id="<?php echo $artwork_id; ?>">
+                                <i class="fa-solid fa-heart fa-2x"></i>
+                                <span id="like-count"><?php echo $like_count; ?></span> Likes
+                            </button>
+                        </form>
 
-                        
-                        <button class="action-button comment-button" data-artwork-id="<?php echo $artwork_id; ?>">
-                                    <i class="fa-solid fa-comment fa-2x"></i>
-                                    <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
-                        </button>
 
-                                <!-- Hidden comment section (initially hidden) -->
-                                <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
-                                    <textarea placeholder="Add a comment..." class="comment-box"></textarea>
-                                    <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
-                                    <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
-                                
-                                        <?php
-                                            if (isset($comments) && !empty($comments)) {
-                                                foreach ($comments as $comment) {
-                                                    echo '<div class="comment">';
-                                                    echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
-                                                    echo '<span class="comment-time">' . htmlspecialchars($comment['created_at']) . '</span>';
-                                                    echo '</div>';
-                                                }
-                                            } else {
-                                                echo '<p>No comments yet.</p>';
-                                            }
-                                        ?>
-                                </div>
 
+
+                            
+                            <button class="action-button comment-button" data-artwork-id="<?php echo $artwork_id; ?>">
+                                <i class="fa-solid fa-comment fa-2x"></i>
+                                <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
+                            </button>
+                            
+
+                            <!-- Hidden comment section (initially hidden) -->
+                            <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
+                                <textarea placeholder="Add a comment..." class="comment-box" id="comment-box-<?php echo $artwork_id; ?>"></textarea>
+                                <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
+                                <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
+                            </div>
+                        </div>
                     </div>
 
 
                 </article>
 
-                <script src="../assets/js/comment.js"></script>
+                <!-- <script src="../assets/js/comment.js"></script> -->
         <?php
             }
         } else {
@@ -203,6 +274,11 @@ $result = $conn->query($sql);
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script src="../assets/js/comment.js"></script>
+
+
+
+
 <script>
 
 
@@ -229,67 +305,7 @@ $result = $conn->query($sql);
             }
         }
 
-<<<<<<< HEAD
-        // like button functionality
-        document.querySelectorAll('.like-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-            });
-        });
-=======
 
-<<<<<<< HEAD
-        $(document).ready(function() {
-    // Handle the comment button click event
-    $('.comment-button').click(function() {
-        var artworkId = $(this).data('artwork-id');
-        
-        // Toggle the visibility of the comment section
-        $('#comment-section-' + artworkId).toggle();
-        
-        // Fetch existing comments for the artwork via AJAX
-        $.ajax({
-            url: '../actions/get_comments.php',
-            type: 'POST',
-            data: { artwork_id: artworkId },
-            success: function(response) {
-                // Populate the comment section with existing comments
-                $('#comments-list-' + artworkId).html(response);
-            }
-        });
-    });
-
-    // Handle comment submission
-    $('.comment-submit').click(function() {
-        var artworkId = $(this).data('artwork-id');
-        var commentText = $('#comment-section-' + artworkId).find('.comment-box').val();
-        var userId = <?php echo $_SESSION['user_id']; ?>; // Assuming you are storing user_id in session
-        
-        if (commentText.trim() != '') {
-            $.ajax({
-                url: '../actions/post_comment.php',
-                type: 'POST',
-                data: {
-                    artwork_id: artworkId,
-                    comment_text: commentText,
-                    user_id: userId
-                },
-                success: function(response) {
-                    // Reload the comments after submission
-                    $('#comments-list-' + artworkId).html(response);
-                    $('#comment-section-' + artworkId).find('.comment-box').val(''); // Clear the input field
-                }
-            });
-        } else {
-            alert('Please write a comment before posting.');
-        }
-    });
-});
-
-
->>>>>>> d5ba6fe4aee3ca715cb46cdbb61a1a514062ffc4
-=======
->>>>>>> b7fa7b9f6a7e04a2d4b57762874cc64cd31ce0ec
     </script>
 </body>
 

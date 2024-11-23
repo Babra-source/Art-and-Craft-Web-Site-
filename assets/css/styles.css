@@ -59,13 +59,13 @@ nav .nav-links a:hover {
 
 .about h1 {
     font-size: 36px;
-    color: #2d3436;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .about p {
-    font-size: 18px;
-    color: #636e72;
+    font-size: 30px;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -74,8 +74,8 @@ nav .nav-links a:hover {
 }
 
 .team h2 {
-    font-size: 28px;
-    color: #2d3436;
+    font-size: 30px;
+    color: #0c0c0c;
     margin-bottom: 20px;
 }
 
@@ -103,19 +103,19 @@ nav .nav-links a:hover {
 }
 
 .team-member h3 {
-    font-size: 22px;
-    color: #2d3436;
+    font-size: 30px;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 .team-member p {
     font-size: 16px;
-    color: #636e72;
+    color: #000000;
 }
 
 .mission h2 {
     font-size: 28px;
-    color: #2d3436;
+    color: #000000;
     margin-top: 40px;
     margin-bottom: 20px;
 }
@@ -126,13 +126,13 @@ nav .nav-links a:hover {
     max-width: 600px;
     text-align: left;
     padding-left: 20px;
-    color: #636e72;
+    color: #000000;
 }
 
 /* Footer */
 .footer {
-    background: #2d3436;
-    color: #fff;
+    background:  #623c9b;
+    color: #080808;
     padding: 10px 0;
     text-align: center;
 }

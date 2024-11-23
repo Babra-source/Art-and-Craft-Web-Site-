@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Check if the delete and update were successful
         if ($delete_stmt->affected_rows > 0 && $update_stmt->affected_rows > 0) {
-            header('Location: ../view/me_likes.php');
+            header('Location: ../view/reels.php');
         } else {
             echo "Error removing your like.";
         }
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Check if the insert and update were successful
         if ($insert_stmt->affected_rows > 0 && $update_stmt->affected_rows > 0) {
-            header('Location: ../view/me_likes.php');
+            header('Location: ../view/reels.php');
         } else {
             echo "Error updating like count.";
         }
