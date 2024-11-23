@@ -229,7 +229,67 @@ $result = $conn->query($sql);
             }
         }
 
+<<<<<<< HEAD
+        // like button functionality
+        document.querySelectorAll('.like-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+=======
 
+<<<<<<< HEAD
+        $(document).ready(function() {
+    // Handle the comment button click event
+    $('.comment-button').click(function() {
+        var artworkId = $(this).data('artwork-id');
+        
+        // Toggle the visibility of the comment section
+        $('#comment-section-' + artworkId).toggle();
+        
+        // Fetch existing comments for the artwork via AJAX
+        $.ajax({
+            url: '../actions/get_comments.php',
+            type: 'POST',
+            data: { artwork_id: artworkId },
+            success: function(response) {
+                // Populate the comment section with existing comments
+                $('#comments-list-' + artworkId).html(response);
+            }
+        });
+    });
+
+    // Handle comment submission
+    $('.comment-submit').click(function() {
+        var artworkId = $(this).data('artwork-id');
+        var commentText = $('#comment-section-' + artworkId).find('.comment-box').val();
+        var userId = <?php echo $_SESSION['user_id']; ?>; // Assuming you are storing user_id in session
+        
+        if (commentText.trim() != '') {
+            $.ajax({
+                url: '../actions/post_comment.php',
+                type: 'POST',
+                data: {
+                    artwork_id: artworkId,
+                    comment_text: commentText,
+                    user_id: userId
+                },
+                success: function(response) {
+                    // Reload the comments after submission
+                    $('#comments-list-' + artworkId).html(response);
+                    $('#comment-section-' + artworkId).find('.comment-box').val(''); // Clear the input field
+                }
+            });
+        } else {
+            alert('Please write a comment before posting.');
+        }
+    });
+});
+
+
+>>>>>>> d5ba6fe4aee3ca715cb46cdbb61a1a514062ffc4
+=======
+>>>>>>> b7fa7b9f6a7e04a2d4b57762874cc64cd31ce0ec
     </script>
 </body>
 
