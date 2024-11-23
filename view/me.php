@@ -6,24 +6,6 @@ include '../db/config.php';
 $sql = "SELECT * FROM artwork ORDER BY created_at DESC"; // Order by 'created_at' to show the most recent first
 $result = $conn->query($sql);
 
-
-// Assuming a database connection is established
-
-
-    // Fetch top 5 comments for each artwork (change the query as per your requirements)
-    $artwork_id = $artwork['artwork_id'];  // Use the actual artwork ID variable
-    $comment_query = "SELECT * FROM comments WHERE artwork_id = $artwork_id ORDER BY created_at DESC LIMIT 5";
-    $comments_result = $conn->query($comment_query);
-    $comments = [];
-
-    if ($comments_result->num_rows > 0) {
-        while ($row = $comments_result->fetch_assoc()) {
-            $comments[] = $row;
-        }
-    }
-
-
-
 ?>
 
 
@@ -37,7 +19,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts | Art Reel</title>
     <link rel="stylesheet" href="../assets/css/reels.css">
-    <script src="../assets/js/interaction.js"></script>
+    <!-- <script src="../assets/js/interaction.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -87,7 +69,7 @@ $result = $conn->query($sql);
                 $like_count = $like_row['like_count'];
 
                 // Fetch the number of comments for this artwork
-                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE user_id= $artwork_id";
+                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE artwork = $artwork_id";
                 $comment_result = $conn->query($comment_sql);
                 $comment_row = $comment_result->fetch_assoc();
                 $comment_count = $comment_row['comment_count'];
@@ -112,36 +94,22 @@ $result = $conn->query($sql);
 
                         
                         <button class="action-button comment-button" data-artwork-id="<?php echo $artwork_id; ?>">
-                                    <i class="fa-solid fa-comment fa-2x"></i>
-                                    <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
+                            <i class="fa-solid fa-comment fa-2x"></i>
+                            <span id="comment-count-<?php echo $artwork_id; ?>"><?php echo $comment_count; ?></span> Comments
                         </button>
 
-                                <!-- Hidden comment section (initially hidden) -->
-                                <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
-                                    <textarea placeholder="Add a comment..." class="comment-box"></textarea>
-                                    <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
-                                    <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
-                                
-                                        <?php
-                                            if (isset($comments) && !empty($comments)) {
-                                                foreach ($comments as $comment) {
-                                                    echo '<div class="comment">';
-                                                    echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
-                                                    echo '<span class="comment-time">' . htmlspecialchars($comment['created_at']) . '</span>';
-                                                    echo '</div>';
-                                                }
-                                            } else {
-                                                echo '<p>No comments yet.</p>';
-                                            }
-                                        ?>
-                                </div>
-
+                        <!-- Hidden comment section (initially hidden) -->
+                        <div class="comment-section" id="comment-section-<?php echo $artwork_id; ?>" style="display: none;">
+                            <textarea placeholder="Add a comment..." class="comment-box" id="comment-box-<?php echo $artwork_id; ?>"></textarea>
+                            <button class="comment-submit" data-artwork-id="<?php echo $artwork_id; ?>">Post</button>
+                            <div class="comments-list" id="comments-list-<?php echo $artwork_id; ?>"></div> <!-- To display comments -->
+                        </div>
                     </div>
 
 
                 </article>
 
-                <script src="../assets/js/comment.js"></script>
+                <!-- <script src="../assets/js/comment.js"></script> -->
         <?php
             }
         } else {
@@ -203,6 +171,75 @@ $result = $conn->query($sql);
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+ 
+</script>
+
+
+
+<script>
+
+       // Attach click event listener to the comment button
+    document.querySelectorAll('.comment-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const artworkId = button.getAttribute('data-artwork-id');
+            const commentSection = document.getElementById(`comment-section-${artworkId}`);
+            
+            // Toggle the visibility of the comment section
+            if (commentSection.style.display === 'none' || commentSection.style.display === '') {
+                commentSection.style.display = 'block';
+            } else {
+                commentSection.style.display = 'none';
+            }
+        });
+    });
+    // Attach event listener to all Post buttons
+    document.querySelectorAll('.comment-submit').forEach(button => {
+        button.addEventListener('click', () => {
+            const artworkId = button.getAttribute('data-artwork-id');
+            const commentBox = document.getElementById(`comment-box-${artworkId}`);
+            const commentText = commentBox.value.trim(); // Get the comment text
+            
+            // Ensure the comment is not empty
+            if (commentText === '') {
+                alert('Comment cannot be empty!');
+                return;
+            }
+
+            // Prepare data to send to the server
+            const formData = new FormData();
+            formData.append('artwork', artworkId);  
+            formData.append('artwork_id', artworkId);
+            formData.append('comment', commentText);
+
+            // Send AJAX request to add_comment_action.php
+            fetch('../actions/me_action.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Expect JSON response
+            .then(data => {
+                if (data.success) {
+                    // Append the new comment to the comments list
+                    const commentsList = document.getElementById(`comments-list-${artworkId}`);
+                    const newComment = document.createElement('div');
+                    newComment.textContent = data.comment_text; // Display the comment text
+                    commentsList.appendChild(newComment);
+
+                    // Update the comment count
+                    const commentCount = document.getElementById(`comment-count-${artworkId}`);
+                    commentCount.textContent = parseInt(commentCount.textContent) + 1; // Increment comment count
+
+                    // Clear the textarea
+                    commentBox.value = '';
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+
+        });
+    });
+</script>
 <script>
 
 

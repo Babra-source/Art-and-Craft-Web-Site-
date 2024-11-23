@@ -12,10 +12,11 @@
         <h1>Contact Us</h1>
         <nav>
             <ul>
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../view/dashboard.php">Dashboard</a></li>
                 <li><a href="../view/showcase.php">Showcase</a></li>
                 <li><a href="../view/reels.php">Arts Reels</a></li>
-                <li><a href="../view/connect.php">Connect</a></li>
+                
              
 
             </ul>

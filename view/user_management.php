@@ -30,7 +30,7 @@ function fetchUsers($conn) {
 //function to fetch all the users 
 
 function fetchArtwork($conn) {
-    $stmt = $conn->prepare("SELECT artwork_id, title, art_type, created_at FROM artwork");
+    $stmt = $conn->prepare("SELECT artwork_id, title, art_type,image_path, created_at FROM artwork");
     $stmt->execute();
     return $stmt->get_result();
 }
@@ -146,6 +146,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                                 <img src="../assets/images/display.png" alt="reel page" class="me-2" width="24" height="24"> Reel
                             </a>
                             <hr>
+                            <a  class="nav-link text-dark d-flex align-items-center" href="../view/dashboard.php">
+                                <img src="../assets/images/dashboard.png" alt="Dashboard page" class="me-2" width="24" height="24">Dashboard
+                            </a>
+                            <hr>
                             <a class="nav-link text-dark d-flex align-items-center" href="../view/contacts.php">
                                 <img src="../assets/images/feedback.png" alt="Contact" class="me-2" width="24" height="24"> Contact
                             </a>
@@ -252,6 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
             <tr>
                 <th>Title</th>
                 <th>Art Type</th>
+                
                 <th>Created At</th>
                 <th>Actions</th>
             </tr>
@@ -267,6 +272,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                     echo "<tr>
                             <td>{$artwork['title']}</td>
                             <td>{$artwork['art_type']}</td>
+                            
+                            
+
                             
                             <td>{$artwork['created_at']}</td>
                             <td>
