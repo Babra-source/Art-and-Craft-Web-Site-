@@ -19,7 +19,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts | Art Reel</title>
     <link rel="stylesheet" href="../assets/css/reels.css">
-
+    <script src="../assets/js/interaction.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
@@ -44,6 +44,8 @@ $result = $conn->query($sql);
                 <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a>
                 <hr>
                 <a href="../view/contacts.php"><img src="../assets/images/feedback.png" alt="home"> Contact</a>
+                <hr>
+                <a href="../view/about_page.php"><img src="../assets/images/about.png" alt="about">About</a>
                 <hr>
             </nav>
         </aside> <!-- Close the sidebar here -->
@@ -174,22 +176,7 @@ $result = $conn->query($sql);
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#like-button').click(function() {
-        var likeCount = $('#like-count').text();
 
-        // Perform AJAX request to increment the like count
-        $.ajax({
-            url: '../actions/like_handler.php',  // PHP file to handle the like increment
-            type: 'POST',
-            data: { action: 'like' },  // Send a signal to like
-            success: function(response) {
-                // Update the like count on success
-                $('#like-count').text(response.newLikeCount);
-            }
-        });
-    });
-});
 
 
         // Get the modal and the button to open it
@@ -223,6 +210,7 @@ $(document).ready(function() {
         });
 =======
 
+<<<<<<< HEAD
         $(document).ready(function() {
     // Handle the comment button click event
     $('.comment-button').click(function() {
@@ -272,6 +260,8 @@ $(document).ready(function() {
 
 
 >>>>>>> d5ba6fe4aee3ca715cb46cdbb61a1a514062ffc4
+=======
+>>>>>>> b7fa7b9f6a7e04a2d4b57762874cc64cd31ce0ec
     </script>
 </body>
 

@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - The Art and Craft Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
     <header class="header">
         <nav>
-            <a href="index.html" class="logo">The Arts and Crafts Hub</a>
+            <a href="../index.html" class="logo">The Arts and Crafts Hub</a>
             <ul class="nav-links">
-                <li><a href="dashboard.php">Home</a></li>
-                <li><a href="about_page.php" class="active">About Us</a></li>
-                <li><a href="showcase.php">Workshops</a></li>
+                <li><a href="../index.html">Home Page</a></li>
+                <li><a href="showcase.php">Showcase</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="reels.php">Reels</a></li>
                 <li><a href="contacts.php">Contacts</a></li>
             </ul>
         </nav>

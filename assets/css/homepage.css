@@ -41,13 +41,15 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    font-size: 20px;
 }
 
 .nav-link {
-    color: #6B6B6B;
+    color: #000000;
     text-decoration: none;
     margin: 0 1rem;
     transition: color 0.3s ease;
+    font-size: 20px;
 }
 
 .nav-link:hover {

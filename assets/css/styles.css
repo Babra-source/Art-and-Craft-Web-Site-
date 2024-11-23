@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: #2d3436;
+    background: #623c9b;
     color: #fff;
     padding: 10px 20px;
     text-align: center;
@@ -21,7 +21,7 @@ header {
 header .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #00cec9;
+    color: #fffdfd;
     text-decoration: none;
 }
 
@@ -88,7 +88,7 @@ nav .nav-links a:hover {
 
 .team-member {
     max-width: 300px;
-    background: #f8f9fa;
+    background: #d9b1ff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
