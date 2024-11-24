@@ -10,14 +10,14 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: 200px;
-    background-color: #ffffff;
+    background-color: #b9b9b9;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     padding: 15px;
     width: 200px; /* Sidebar width */
     position: fixed; 
     height: 100%;
-    font-size: medium;
+    font-size: larger;
     overflow-y: auto; /* Scrolling for overflow content */
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Adds depth with a shadow */
     border-right: 1px solid #ddd;
@@ -100,7 +100,7 @@ body {
 /* Right Sidebar Styles */
 /* Right Sidebar: Recent Posts */
 .right-bar {
-    background-color: #fff;
+    background-color: #afadad;
     padding: 15px;
     border-left: 1px solid #ddd;
     position: fixed; /* Fixes the sidebar on the page */

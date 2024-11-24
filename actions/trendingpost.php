@@ -4,14 +4,15 @@ ini_set('display_errors', 1);
 
 include '../db/config.php';
 
-// Fetch the top 4 most liked (or trending) posts based on the number of likes
+// Fetch the top 3 artworks with the most likes
 $sql = "
-    SELECT artwork.*, COUNT(likes.art_id) AS like_count
-    FROM artwork
-    LEFT JOIN likes ON artwork.art_id = likes.art_id
-    GROUP BY artwork.art_id
-    ORDER BY like_count DESC
-    LIMIT 4"; // Get the top 4 posts with the most likes
+    SELECT artwork.artwork_id, artwork.title, artwork.description, artwork.image_path, COUNT(likes.artwork_id) AS total_likes
+    FROM likes
+    INNER JOIN artwork ON likes.artwork_id = artwork.artwork_id
+    GROUP BY likes.artwork_id
+    ORDER BY total_likes DESC
+    LIMIT 3
+";
 
 $result = $conn->query($sql);
 
@@ -25,12 +26,12 @@ if ($result) {
             echo '<div class="post-details">';
             echo '<h4>' . htmlspecialchars($row['title']) . '</h4>';
             echo '<p>' . htmlspecialchars($row['description']) . '</p>';
-            echo '<p><strong>Likes:</strong> ' . $row['like_count'] . '</p>'; // Display the like count
+            echo '<p><strong>Likes:</strong> ' . htmlspecialchars($row['total_likes']) . '</p>';
             echo '</div>';
             echo '</div>';
         }
     } else {
-        echo "No posts available.";
+        echo "No popular posts available.";
     }
 } else {
     die("Error executing query: " . $conn->error);

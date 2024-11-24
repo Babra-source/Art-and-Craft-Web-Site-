@@ -64,11 +64,7 @@ nav .nav-links a:hover {
 }
 
 .about p {
-<<<<<<< HEAD
     font-size: 18px;
-=======
-    font-size: 30px;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
     color: #000000;
     margin-bottom: 20px;
 }
@@ -78,13 +74,10 @@ nav .nav-links a:hover {
 }
 
 .team h2 {
-<<<<<<< HEAD
     font-size: 28px;
     color: #000000;
-=======
     font-size: 30px;
     color: #0c0c0c;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
     margin-bottom: 20px;
 }
 

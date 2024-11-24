@@ -66,7 +66,19 @@ if (isset($_GET['delete'])) {
 
 <!-- Add this right before your closing </body> tag -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  body {
+  background-color: lightgrey;
+}
+
+</style>
 </head>
+
+
+
+
+
 <body>
   <header class="dashboard-header">
     <div class="dashboard-header-content">
@@ -266,8 +278,8 @@ if (isset($_GET['delete'])) {
         </li>
         <li>
         <?php
-            // Assuming $user_id contains the logged-in user's ID
-            $user_id = $_SESSION['user_id']; // Example: Fetch from session or authentication logic
+
+            $user_id = $_SESSION['user_id'];
 
             // Query to fetch the latest comments on the current user's artworks
             $query = "SELECT c.comment_text, a.title, c.created_at 
@@ -289,7 +301,7 @@ if (isset($_GET['delete'])) {
                     $activityTitle = 'New Comment on Artwork';
                     $feedback = htmlspecialchars($comment['comment_text']);
                     $artworkTitle = htmlspecialchars($comment['title']);
-                    $timeAgo = $comment['created_at']; // Use your `time_ago` function if available
+                    $timeAgo = $comment['created_at'];
 
                     // Display the activity
                     echo '<li>';

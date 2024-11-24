@@ -37,19 +37,28 @@ body {
 }
 
 .nav-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
+    display: flex;               
+    list-style: none;            
+    margin: 0;                   
+    padding: 0;                  /* Removes default padding */
+    font-size: 20px;             /* Sets font size to 20px */
+    gap: 15px;                   /* Adds space between list items */
+    font-family: Arial, sans-serif; /* Applies a clean, modern font */
 }
 
+
 .nav-link {
-    color: #000000;
-    text-decoration: none;
-    margin: 0 1rem;
-    transition: color 0.3s ease;
-    font-size: 20px;
+    color: #000000;                
+    text-decoration: none;         
+    margin: 0 1rem;                
+    
+    font-size: 20px;               
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;    
+    border-radius: 5px;            
+    border: 1px solid #000000;     
+    padding: 0.5rem 1rem;          
+    cursor: pointer;               
 }
 
 .nav-link:hover {

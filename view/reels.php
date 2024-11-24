@@ -237,6 +237,11 @@ $result = $conn->query($sql);
 
 
             <h3>Trending Post</h3>
+            <?php
+
+            include('../actions/trendingpost.php');
+            ?>
+
 
         </aside>
 
