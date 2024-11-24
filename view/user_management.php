@@ -237,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                                         <input type='text' name='lname' value='{$user['lname']}' class='form-control d-inline w-auto' required>
                                         <input type='email' name='email' value='{$user['email']}' class='form-control d-inline w-auto' required>
                                         <button type='submit' name='update_user' class='btn btn-primary btn-sm'>Update</button>
-                                        <button type='submit' name='view_user' class='btn btn-primary btn-sm onclick='viewArtwork({$user['user_id']})'>View</button>
+                                        
                                     </form>
                                 </td>
                             </tr>";
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
             <tr>
                 <th>Title</th>
                 <th>Art Type</th>
-                
+                <th>post</th>
                 <th>Created At</th>
                 <th>Actions</th>
             </tr>
@@ -281,8 +281,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                             
                             
 
-                            
-                            <td>{$artwork['created_at']}</td>
+                            <td>
+                                <img src='{$artwork['image_path']}' alt='Artwork Image' style='max-width: 100px; max-height: 100px;'>
+                            </td>
+                                        <td>{$artwork['created_at']}</td>
                             <td>
                             <form method='POST' class='d-inline'>
                                     <input type='hidden' name='artwork_id' value='{$artwork['artwork_id']}'>

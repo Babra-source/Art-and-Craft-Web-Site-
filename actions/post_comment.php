@@ -16,13 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Prepare the SQL statement using prepared statements to prevent SQL injection
-        $stmt = $conn->prepare("INSERT INTO comments (artwork_id, user_id, comment_text) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO group_comments (artwork_id, user_id, comment_text) VALUES (?, ?, ?)");
         $stmt->bind_param("iis", $artwork_id, $user_id, $comment_text); // "i" for integer, "s" for string
 
         // Execute the query and check for success
         if ($stmt->execute()) {
             // Fetch and display the updated comment list
-            $comment_sql = "SELECT * FROM comments WHERE artwork_id = ? ORDER BY created_at DESC";
+            $comment_sql = "SELECT * FROM group_comments WHERE artwork_id = ? ORDER BY created_at DESC";
             $stmt = $conn->prepare($comment_sql);
             $stmt->bind_param("i", $artwork_id);
             $stmt->execute();

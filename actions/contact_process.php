@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Example: Assuming you have a users table, fetch the user_id based on the email.
         
         // Find the user_id based on the email
-        $user_query = "SELECT user_id FROM users WHERE email = '$email'";
+        $user_query = "SELECT user_id FROM group_users WHERE email = '$email'";
         $result = mysqli_query($conn, $user_query);
         
         if ($result && mysqli_num_rows($result) > 0) {
