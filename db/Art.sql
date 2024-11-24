@@ -4,7 +4,7 @@ CREATE DATABASE artdb;
 USE artdb;  -- Replace with your actual database name
 
 -- Users Table
-CREATE TABLE `users` (
+CREATE TABLE `group_users` (
   `user_id` INT(11) NOT NULL AUTO_INCREMENT,  -- AUTO_INCREMENT to automatically generate user IDs
   `fname` VARCHAR(50) NOT NULL,
   `lname` VARCHAR(50) NOT NULL,

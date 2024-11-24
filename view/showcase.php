@@ -90,6 +90,7 @@
         <!-- Search section remains the same -->
 
         <section>
+            <br>
             <h2 class="mb-4">Paintings</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col artwork-card" data-title="Sunset Nature" data-artist="Garo_garo" data-category="Painting">
@@ -153,6 +154,8 @@
                 <!-- Continue this pattern for all artwork cards -->
             </div>
         </section>
+        <hr>
+        <br><br>
 
         <section class="mt-5">
     <h2 class="mb-4">Sculpture</h2>
@@ -231,7 +234,10 @@
     </div>
 </section>
 <hr>
-<br>
+<br><br>
+
+
+
 <section class="mt-5">
     <h2 class="mb-4">Photography</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -272,6 +278,11 @@
         </div>
     </div>
 </section>
+<hr>
+<br>
+<br>
+
+
 
 <section class="mt-5">
     <h2 class="mb-4">Digital Art</h2>
@@ -333,7 +344,10 @@
 </section>
 <hr>
 <br>
+
+
 <section>
+    <br><br><br>
     <h2 class="mb-4">Crafts</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col artwork-card" data-title="Room Decor" data-artist="Abigail" data-category="Crafts">

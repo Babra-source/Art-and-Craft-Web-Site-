@@ -7,7 +7,7 @@ $userName = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'Guest';
 $role = $_SESSION['role'];
 $user_id = $_SESSION['user_id'];
 // Query for total number of customers based on unique user_id
-$totalUsersQuery = "SELECT COUNT(user_id) FROM users";
+$totalUsersQuery = "SELECT COUNT(user_id) FROM group_users";
 $totalUsersResult = $conn->query($totalUsersQuery);
 $totalUsers = $totalUsersResult->fetch_row()[0];
 

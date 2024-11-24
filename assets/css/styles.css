@@ -76,8 +76,6 @@ nav .nav-links a:hover {
 .team h2 {
     font-size: 28px;
     color: #000000;
-    font-size: 30px;
-    color: #0c0c0c;
     margin-bottom: 20px;
 }
 
@@ -105,11 +103,7 @@ nav .nav-links a:hover {
 }
 
 .team-member h3 {
-<<<<<<< HEAD
-    font-size: 22px;
-=======
     font-size: 30px;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
     color: #000000;
     margin-bottom: 10px;
 }
@@ -121,11 +115,7 @@ nav .nav-links a:hover {
 
 .mission h2 {
     font-size: 28px;
-<<<<<<< HEAD
     color: #1b1d1d;
-=======
-    color: #000000;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
     margin-top: 40px;
     margin-bottom: 20px;
 }
@@ -136,22 +126,13 @@ nav .nav-links a:hover {
     max-width: 600px;
     text-align: left;
     padding-left: 20px;
-<<<<<<< HEAD
     color: #141414;
-=======
-    color: #000000;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
 }
 
 /* Footer */
 .footer {
-<<<<<<< HEAD
     background: #221733;
     color: #fff;
-=======
-    background:  #623c9b;
-    color: #080808;
->>>>>>> 4af2d40bcd79cd69db437a6361d87c9f8c71fa3e
     padding: 10px 0;
     text-align: center;
 }

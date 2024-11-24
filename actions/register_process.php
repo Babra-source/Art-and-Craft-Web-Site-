@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         // Prepare an INSERT statement to add the new user to the database
-        $sql = "INSERT INTO users (fname, lname, email, password, role, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
+        $sql = "INSERT INTO group_users (fname, lname, email, password, role, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
         $stmt = $conn->prepare($sql);
         $role = 2; // Artisans and Viewers
                // Corrected the bind_param variables to match the prepared statement parameters

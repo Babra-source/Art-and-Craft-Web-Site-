@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                     <!-- Main Content -->
                     <main class="col-md-9" style="margin-left: 220px;">
 
-                        <header class="bg-primary text-white p-3">
+                        <header class="bg-dark text-white p-3">
                         <h1 id="Users List">User Management</h1>
                         
                         </header>
