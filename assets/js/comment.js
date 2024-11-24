@@ -1,44 +1,123 @@
-$(document).ready(function() {
-    // Show the comment section when the comment button is clicked
-    $(".comment-button").on("click", function() {
-        var artworkId = $(this).data("artwork-id");
-        var commentSection = $("#comment-section-" + artworkId);
-        commentSection.toggle(); // Toggle the visibility of the comment section
-    });
+document.querySelectorAll('.comment-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const artworkId = button.getAttribute('data-artwork-id');
+        const commentSection = document.getElementById(`comment-section-${artworkId}`);
 
-    // Handle the comment submission
-    $(".comment-submit").on("click", function() {
-        var artworkId = $(this).data("artwork-id");
-        var commentBox = $("#comment-section-" + artworkId).find(".comment-box");
-        var commentText = commentBox.val();
+        // Toggle the visibility of the comment section
+        if (commentSection.style.display === 'none' || commentSection.style.display === '') {
+            commentSection.style.display = 'block';
 
-        if (commentText.trim() !== "") {
-            $.ajax({
-                url: "../actions/comment_proc.php", // PHP file to handle comment posting
-                type: "POST",
-                data: {
-                    artwork_id: artworkId,
-                    comment: commentText
-                },
-                success: function(response) {
-                    if (response.success) {
-                        // Display the new comment below the post
-                        var newComment = $("<p></p>").text(commentText);
-                        $("#comments-list-" + artworkId).append(newComment);
+            // Find or create the comments list container
+            let commentsList = commentSection.querySelector('.comments-list');
+            if (!commentsList) {
+                commentsList = document.createElement('div');
+                commentsList.classList.add('comments-list');
+                commentSection.appendChild(commentsList);
+            }
 
-                        // Update the comment count
-                        var currentCommentCount = parseInt($("#comment-count-" + artworkId).text());
-                        $("#comment-count-" + artworkId).text(currentCommentCount + 1);
+            // Clear the comments list
+            commentsList.innerHTML = '';
 
-                        // Clear the comment box
-                        commentBox.val("");
+            // Fetch top 5 comments from the database
+            fetch(`../functions/display_comments.php?artwork_id=${artworkId}`)
+                .then(response => response.json())
+                .then(comments => {
+                    if (comments.length > 0) {
+                        comments.forEach(comment => {
+                            const commentDiv = document.createElement('div');
+                            commentDiv.classList.add('comment');
+                            commentDiv.innerHTML = `
+                                <p><strong>${comment.fname}</strong> said:</p>
+                                <p>${comment.comment_text}</p>
+                                <p><small>${comment.created_at}</small></p>
+                            `;
+                            commentsList.appendChild(commentDiv);
+                        });
                     } else {
-                        alert("There was an error posting your comment. Please try again.");
+                        commentsList.innerHTML = '<p>No comments available.</p>';
                     }
-                }
-            });
+                })
+                .catch(error => {
+                    console.error('Error fetching comments:', error);
+                    commentsList.innerHTML = '<p>Failed to load comments.</p>';
+                });
         } else {
-            alert("Please enter a comment before posting.");
+            commentSection.style.display = 'none';
         }
     });
 });
+
+       
+       
+       
+    //    // Attach click event listener to the comment button
+    //    document.querySelectorAll('.comment-button').forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         const artworkId = button.getAttribute('data-artwork-id');
+    //         const commentSection = document.getElementById(`comment-section-${artworkId}`);
+            
+    //         // Toggle the visibility of the comment section
+    //         if (commentSection.style.display === 'none' || commentSection.style.display === '') {
+    //             commentSection.style.display = 'block';
+
+
+    //         } else {
+    //             commentSection.style.display = 'none';
+    //         }
+    //     });
+    // });
+    // Attach event listener to all Post buttons
+    document.querySelectorAll('.comment-submit').forEach(button => {
+        button.addEventListener('click', () => {
+            const artworkId = button.getAttribute('data-artwork-id');
+            const commentBox = document.getElementById(`comment-box-${artworkId}`);
+            const commentText = commentBox.value.trim(); // Get the comment text
+    
+            // Ensure the comment is not empty
+            if (commentText === '') {
+                alert('Comment cannot be empty!');
+                return;
+            }
+    
+            // Prepare data to send to the server
+            const formData = new FormData();
+            formData.append('artwork', artworkId);  
+            formData.append('artwork_id', artworkId);
+            formData.append('comment', commentText);
+    
+            // Send AJAX request to add_comment_action.php
+            fetch('../actions/me_action.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Expect JSON response
+            .then(data => {
+                if (data.success) {
+                    // Append the new comment to the comments list
+                    const commentsList = document.getElementById(`comments-list-${artworkId}`);
+                    const newComment = document.createElement('div');
+                    newComment.classList.add('comment'); // Add the same class as existing comments
+                    newComment.innerHTML = `
+                        <p><strong>${data.fname}</strong> said:</p>
+                        <p>${data.comment_text}</p>
+                        <p><small>${data.created_at}</small></p>
+                    `;
+                    commentsList.appendChild(newComment);
+    
+                    // Update the comment count
+                    const commentCount = document.getElementById(`comment-count-${artworkId}`);
+                    commentCount.textContent = parseInt(commentCount.textContent) + 1; // Increment comment count
+    
+                    // Clear the textarea
+                    commentBox.value = '';
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error adding comment:', error);
+                alert('Failed to add the comment. Please try again.');
+            });
+        });
+    });
+    

@@ -76,9 +76,10 @@ if (isset($_GET['delete'])) {
         <li><a href="../view/reels.php">Artwork Reels</a></li>
           <li><a href="../view/showcase.php">Showcase</a></li>
           <li><a href="../view/contacts.php">Contacts</a></li>
+          
           <?php if ($user_id == 1): ?>
               <li><a href="../view/user_management.php">User Management</a></li>
-              <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a>
+              <!-- <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a> -->
           <?php endif; ?>
 
           <li><a href="../view/login.php">Logout</a></li>
@@ -154,7 +155,7 @@ if (isset($_GET['delete'])) {
           <li>
           <?php
                 // Fetch the top two new contact messages from the database
-                $query = "SELECT title,art_type, created_at FROM artwork ORDER BY created_at DESC LIMIT 2";
+                $query = "SELECT title,art_type, image_path, created_at FROM artwork ORDER BY created_at DESC LIMIT 2";
                 $result = $conn->query($query);
 
                 if ($result->num_rows > 0) {
@@ -172,6 +173,13 @@ if (isset($_GET['delete'])) {
                         echo '<h3>' . $activityTitle . '</h3>';
                         echo '<p>' . htmlspecialchars($message['title']) . '</p>'; // Use 'message' column instead of 'the title'
                         echo '<p>' . htmlspecialchars($message['art_type']) . '</p>'; // Use 'message' column instead of 'the title'
+
+                        if (!empty($message['image_path'])) {
+                          echo '<p>Image Path: ' . htmlspecialchars($message['image_path']) . '</p>';
+                          echo '<img src="' . htmlspecialchars($message['image_path']) . '" alt="' . htmlspecialchars($message['title']) . '" style="width: 50px; height: auto; border-radius: 5px;">';
+                      } else {
+                          echo '<p>No image available for this post.</p>';
+                      }
 
                         echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
                         echo '</div>';
@@ -310,7 +318,7 @@ if (isset($_GET['delete'])) {
   <h2 class="text-center mb-4">Your Artwork Posts</h2>
   
   <?php
-  $query = "SELECT artwork_id, title, art_type, created_at FROM artwork WHERE artist_id = ? ORDER BY created_at DESC";
+  $query = "SELECT artwork_id, title, art_type,image_path, created_at FROM artwork WHERE artist_id = ? ORDER BY created_at DESC";
   $stmt = $conn->prepare($query);
   $stmt->bind_param("i", $user_id);
   $stmt->execute();
@@ -324,6 +332,7 @@ if (isset($_GET['delete'])) {
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Art Type</th>
+            <th scope="col">Image_path</th>
             <th scope="col">Created At</th>
             <th scope="col" class="text-center">Action</th>
           </tr>
@@ -333,6 +342,15 @@ if (isset($_GET['delete'])) {
             <tr>
               <td><?php echo htmlspecialchars($post['title']); ?></td>
               <td><?php echo htmlspecialchars($post['art_type']); ?></td>
+              <td>
+                    <?php 
+                    if (!empty($post['image_path'])) { 
+                      echo '<img src="' . htmlspecialchars($post['image_path']) . '" alt="' . htmlspecialchars($post['title']) . '" style="width: 50px; height: auto; border-radius: 5px;">';
+                    } else {
+                      echo '<p>No image available for this post.</p>';
+                    }
+                    ?>
+                  </td>
               <td><?php echo htmlspecialchars($post['created_at']); ?></td>
               <td class="text-center">
                 <button 
@@ -408,5 +426,4 @@ function showDeleteModal(artworkId, artworkTitle) {
 </body>
 </html>
 <?
-
 

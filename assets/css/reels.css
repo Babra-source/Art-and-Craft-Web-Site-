@@ -17,6 +17,7 @@ body {
     width: 200px; /* Sidebar width */
     position: fixed; 
     height: 100%;
+    font-size: medium;
     overflow-y: auto; /* Scrolling for overflow content */
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Adds depth with a shadow */
     border-right: 1px solid #ddd;

@@ -14,7 +14,7 @@ body {
 
 /* Header */
 header {
-    background: #0f161b;
+    background: #700186;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -132,7 +132,7 @@ header nav ul li a:hover {
 .contact-form button {
     font-size: 1rem;
     padding: 0.8rem;
-    background-color: #10171d;
+    background-color: #430081;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -141,7 +141,7 @@ header nav ul li a:hover {
 }
 
 .contact-form button:hover {
-    background-color: #10171d;
+    background-color: #42006e;
 }
 
 /* Responsive Design */

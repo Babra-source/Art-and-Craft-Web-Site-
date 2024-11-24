@@ -71,10 +71,10 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="../assets/images/download (6).jpeg" class="card-img-top" alt="painting">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Joe_Kevin</p>
+                            <h5 class="card-title">Artistic</h5>
+                            <p class="card-text text-muted">By bouy</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
@@ -82,6 +82,8 @@
                 
             </div>
         </section>
+        <hr>
+        <br>
 
         <section class="mt-5">
             <h2 class="mb-4">Sculpture</h2>
@@ -107,27 +109,61 @@
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div> 
                     </div>
-                </div>
+                </div> 
 
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/resin bowl.png" class="card-img-top" alt="bowl">
+                        <div class="card-body">
+                            <h5 class="card-title">Resin Bowl</h5>
+                            <p class="card-text text-muted">By Artex</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div> 
+                    </div>
+                </div>  
+                
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/download (1).jpeg" class="card-img-top" alt="case">
+                        <div class="card-body">
+                            <h5 class="card-title">The vase</h5>
+                            <p class="card-text text-muted">By Artex</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div> 
+                    </div>
+                </div> 
                
             </div>
         </section>
+        <hr>
+        <br>
 
         <section class="mt-5">
             <h2 class="mb-4">Photography</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                     <div class="card h-100">
-                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="../assets/images/photography.jpeg" class="card-img-top" alt="photo">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <h5 class="card-title">Photo_1</h5>
+                            <p class="card-text text-muted">By Cripx media</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/photo1.jpeg" class="card-img-top" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title">Photo_2</h5>
+                            <p class="card-text text-muted">By Cripx media</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col">
                     <div class="card h-100">
                         <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
                         <div class="card-body">
@@ -137,20 +173,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
-                        <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
-                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add artwork cards for Photography -->
+                 -->
             </div>
         </section>
+        <hr>
+        <br>
 
         <section class="mt-5">
             <h2 class="mb-4">Digital Art</h2>
@@ -158,10 +185,10 @@
 
             <div class="col">
                     <div class="card h-100">
-                        <img src="../assets/images/indigenous.jpg" class="card-img-top" alt="Indigenous">
+                        <img src="../assets/images/indigenous1.png" class="card-img-top" alt="Indigenous">
                         <div class="card-body">
                             <h5 class="card-title">indigenous</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <p class="card-text text-muted">By Lenin</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
@@ -169,26 +196,39 @@
 
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..assets/images/art3.jpg" class="card-img-top" alt="Timeless Grace">
+                        <img src="../assets/images/raccons.jpg" class="card-img-top" alt="racoon">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <h5 class="card-title">Raccoono</h5>
+                            <p class="card-text text-muted">By FS_arts</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
                 </div>
-                <!-- Add artwork cards for Digital Art -->
+
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/Mystical.jpg" class="card-img-top" alt="mystical">
+                        <div class="card-body">
+                            <h5 class="card-title">Mystical</h5>
+                            <p class="card-text text-muted">By FS_arts</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+        <hr>
+        <br>
 
         <section class="mt-5">
             <h2 class="mb-4">Crafts</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                     <div class="card h-100">
-                        <img src="../assets/images/download (3).jpeg" class="card-img-top" alt="beaded">
+                        <img src="../assets/images/roomdecor.jpg" class="card-img-top" alt="decor">
                         <div class="card-body">
-                            <h5 class="card-title">Beaded Basket</h5>
+                            <h5 class="card-title">Room decor</h5>
                             <p class="card-text text-muted">By Abigail</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
@@ -199,8 +239,8 @@
                     <div class="card h-100">
                         <img src="../assets/images/art4.jpg" class="card-img-top" alt="decor">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <h5 class="card-title">Arte</h5>
+                            <p class="card-text text-muted">By ArtByWe</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
@@ -210,13 +250,24 @@
                     <div class="card h-100">
                         <img src="../assets/images/art6.jpg" class="card-img-top" alt="digital_painting">
                         <div class="card-body">
-                            <h5 class="card-title">Timeless Grace</h5>
-                            <p class="card-text text-muted">By Mensah Kevin</p>
+                            <h5 class="card-title">Beaded</h5>
+                            <p class="card-text text-muted">By Ducee_gh</p>
+                            <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div> 
+               
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../assets/images/basket.jpeg" class="card-img-top" alt="wooven">
+                        <div class="card-body">
+                            <h5 class="card-title">Traditional Basket</h5>
+                            <p class="card-text text-muted">By Lekea</p>
                             <a href="details.html" class="btn btn-primary btn-sm">View Details</a>
                         </div>
                     </div>
                 </div>
-                <!-- Add artwork cards for Other -->
+
             </div>
         </section>
     </main>

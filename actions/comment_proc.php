@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
         // Execute the query
         if ($stmt->execute()) {
             // Successfully added the comment, redirect to the showcase page
-            header('Location: showcase.html'); // Replace with the correct page
+            header('Location: ../view/showcase.php'); // Replace with the correct page
             exit();
         } else {
             // Failed to post the comment, show an error message
