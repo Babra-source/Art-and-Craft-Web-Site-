@@ -27,7 +27,8 @@
                 <ul class="nav">
                     <li class="nav-item"><a href="../index.html" class="nav-link text-white">Home</a></li>
                     <li class="nav-item"><a href="../view/reels.php" class="nav-link text-white">Arts Reels</a></li>
-                    <li class="nav-item"><a href="contacts.php" class="nav-link text-white">Contacts</a></li>
+                    <li class="nav-item"><a href="../view/contacts.php" class="nav-link text-white">Contacts</a></li>
+                    <li class="nav-item"><a href="../view/about_page.php" class="nav-link text-white">About</a></li>
                 </ul>
             </nav>
         </div>

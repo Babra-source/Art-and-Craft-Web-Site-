@@ -58,7 +58,7 @@
                             </p>
                         </div>
                         <div class="team-member">
-                            <img src="../assets/images/lovette.jpg" alt="Lovette Philips" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                            <img src="../assets/images/lovette.jpg" alt="Lovette Philips" class="img-fluid rounded-circle mb-3" style="width: 170px;" height="90px">
                             <h3>Lovette Philips</h3>
                             <p><strong>Role:</strong> Community Builder</p>
                             <p>
