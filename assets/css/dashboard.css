@@ -100,7 +100,7 @@
   .stat-card {
     background-color: #fff;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(97, 7, 133, 0.1);
+    box-shadow: 0 10px 10px rgba(97, 7, 133, 0.3);
     padding: 2rem;
     text-align: center;
   }

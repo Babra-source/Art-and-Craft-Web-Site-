@@ -21,13 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Insert new comment
-    $sql = "INSERT INTO comments (user_id, artwork_id, comment_text) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO group_comments (user_id, artwork_id, comment_text) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iis", $user_id, $artwork_id, $comment_text);
     
     if ($stmt->execute()) {
         // Get user details for the response
-        $user_sql = "SELECT fname, lname FROM users WHERE user_id = ?";
+        $user_sql = "SELECT fname, lname FROM group_users WHERE user_id = ?";
         $user_stmt = $conn->prepare($user_sql);
         $user_stmt->bind_param("i", $user_id);
         $user_stmt->execute();
@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     $sql = "SELECT c.*, u.fname, u.lname 
-            FROM comments c 
-            JOIN users u ON c.user_id = u.user_id 
+            FROM group_comments c 
+            JOIN group_users u ON c.user_id = u.user_id 
             WHERE c.artwork_id = ? 
             ORDER BY c.created_at DESC";
     

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Check if comment text is empty
         if (!empty($comment_text)) {
             // Prepare the SQL statement to prevent SQL injection
-            $stmt = $conn->prepare("INSERT INTO comments (artwork_id, comment_text) VALUES (?, ?)");
+            $stmt = $conn->prepare("INSERT INTO group_comments (artwork_id, comment_text) VALUES (?, ?)");
             $stmt->bind_param("is", $artwork_id, $comment_text);
             $stmt->execute();
             $stmt->close();

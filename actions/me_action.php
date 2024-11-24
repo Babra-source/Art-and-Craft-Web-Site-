@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
         $user_id = $_SESSION['user_id']; // Retrieve user ID from the session
 
         // Retrieve the username for display
-        $stmt_user = $conn->prepare("SELECT fname FROM users WHERE user_id = ?");
+        $stmt_user = $conn->prepare("SELECT fname FROM group_users WHERE user_id = ?");
         $stmt_user->bind_param("i", $user_id);
         $stmt_user->execute();
         $result_user = $stmt_user->get_result();
@@ -36,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
         $stmt_user->close();
 
         // Prepare an SQL statement to insert the comment into the database
-        $stmt = $conn->prepare("INSERT INTO comments (user_id, comment_text, artwork) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO group_comments (user_id, comment_text, artwork) VALUES (?, ?, ?)");
         $stmt->bind_param("isi", $user_id, $comment, $art);
 
         // Execute the query
         if ($stmt->execute()) {
             // Fetch the created_at timestamp of the newly inserted comment
             $last_id = $stmt->insert_id;
-            $stmt_get_comment = $conn->prepare("SELECT created_at FROM comments WHERE id = ?");
+            $stmt_get_comment = $conn->prepare("SELECT created_at FROM group_comments WHERE id = ?");
             $stmt_get_comment->bind_param("i", $last_id);
             $stmt_get_comment->execute();
             $result_comment = $stmt_get_comment->get_result();

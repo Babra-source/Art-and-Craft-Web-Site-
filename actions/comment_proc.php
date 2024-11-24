@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
         $user_id = $_SESSION['user_id']; // Retrieve user ID from the session
         
         // Prepare an SQL statement to insert the comment into the database
-        $stmt = $conn->prepare("INSERT INTO comments (user_id, comment_text) VALUES (?, ?)");
+        $stmt = $conn->prepare("INSERT INTO group_comments (user_id, comment_text) VALUES (?, ?)");
         $stmt->bind_param("is", $user_id, $comment); // Bind the user_id and comment
 
         // Execute the query
