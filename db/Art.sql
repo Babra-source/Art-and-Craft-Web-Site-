@@ -45,7 +45,7 @@ CREATE TABLE `Artwork` (
 -- );
 
 
-CREATE TABLE `comments` (
+CREATE TABLE `group_comments` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `artwork_id` INT(11) NOT NULL,

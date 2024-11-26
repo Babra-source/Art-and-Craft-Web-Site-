@@ -22,7 +22,7 @@ $role = $_SESSION['role']; // 1 for Super Admin, 2 for regular User
 
 // Function to fetch all us ers
 function fetchUsers($conn) {
-    $stmt = $conn->prepare("SELECT user_id, fname, lname, email, role FROM users");
+    $stmt = $conn->prepare("SELECT user_id, fname, lname, email, role FROM group_users");
     $stmt->execute();
     return $stmt->get_result();
 }
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_user'])) {
     // Hash password securely
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    $stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password, role) VALUES (?, ?, ?, ?, 2)");
+    $stmt = $conn->prepare("INSERT INTO group_users (fname, lname, email, password, role) VALUES (?, ?, ?, ?, 2)");
     $stmt->bind_param("ssss", $fname, $lname, $email, $hashedPassword);
     $stmt->execute();
     header("Location: user_management.php");
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_user'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
     $user_id = $_POST['user_id'];
 
-    $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
+    $stmt = $conn->prepare("DELETE FROM group_users WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     header("Location: user_management.php");
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
         die("All fields are required for update.");
     }
 
-    $stmt = $conn->prepare("UPDATE users SET fname = ?, lname = ?, email = ? WHERE user_id = ?");
+    $stmt = $conn->prepare("UPDATE group_users SET fname = ?, lname = ?, email = ? WHERE user_id = ?");
     $stmt->bind_param("sssi", $fname, $lname, $email, $user_id);
     $stmt->execute();
     header("Location: user_management.php");
@@ -115,12 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
     <title>User Management</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="icon" href="../assets/images/art-icon.png">
-
 </head>
-
-
-
-
 <body>
 
         <style>
@@ -178,9 +173,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_art'])) {
                     <!-- Main Content -->
                     <main class="col-md-9" style="margin-left: 220px;">
 
-                        <header class="bg-dark text-white p-3">
+                        <header class="bg-primary text-white p-3">
                         <h1 id="Users List">User Management</h1>
-                        
                         </header>
                         <div class="container my-4">
                         <h2 class="text-center">Manage Users</h2>

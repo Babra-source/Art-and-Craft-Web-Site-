@@ -164,7 +164,7 @@ $result = $conn->query($sql);
                 $like_count = $like_row['likes_count'];
 
                 // Fetch the number of comments for this artwork
-                $comment_sql = "SELECT COUNT(*) AS comment_count FROM comments WHERE artwork = $artwork_id";
+                $comment_sql = "SELECT COUNT(*) AS comment_count FROM group_comments WHERE artwork = $artwork_id";
                 $comment_result = $conn->query($comment_sql);
                 $comment_row = $comment_result->fetch_assoc();
                 $comment_count = $comment_row['comment_count'];
@@ -174,7 +174,7 @@ $result = $conn->query($sql);
                         <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($title); ?>">
                     </div>
                     <p class="art-description">
-                     Description :   <?php echo htmlspecialchars($description); ?>
+                    Description :   <?php echo htmlspecialchars($description); ?>
                     </p>
                     <hr style="border: 1px solid black;">
                     
@@ -182,13 +182,13 @@ $result = $conn->query($sql);
                     <div class="action-container">
                         <!-- Love Button -->
                         <div class="button-row">
-                        <form action="../actions/add_likes_actions.php" method="post">
-                            <input type = "hidden" value = "<?php echo $artwork_id; ?>" name = "artwork_id">
-                            <button type="submit" class="action-button love-button" id="like-button" data-artwork-id="<?php echo $artwork_id; ?>">
-                                <i class="fa-solid fa-heart fa-2x"></i>
-                                <span id="like-count"><?php echo $like_count; ?></span> Likes
-                            </button>
-                        </form>
+                            <form action="../actions/add_likes_actions.php" method="post">
+                                <input type = "hidden" value = "<?php echo $artwork_id; ?>" name = "artwork_id">
+                                <button type="submit" class="action-button love-button" id="like-button" data-artwork-id="<?php echo $artwork_id; ?>">
+                                    <i class="fa-solid fa-heart fa-2x"></i>
+                                    <span id="like-count"><?php echo $like_count; ?></span> Likes
+                                </button>
+                            </form>
 
 
 
@@ -252,7 +252,7 @@ $result = $conn->query($sql);
                 <span class="close">&times;</span>
                 <h2>Upload Your Artwork</h2>
                 <form class="upload-form" action="../actions/artwork_upload.php" method="POST" enctype="multipart/form-data">
-                    <label for="name">Your Name:</label>
+                    <label for="name">Art Name:</label>
                     <input type="text" id="name" name="name" required>
 
                     <label for="artwork">Artwork Image:</label>
@@ -285,9 +285,6 @@ $result = $conn->query($sql);
 
 
 <script>
-
-
-
         // Get the modal and the button to open it
         var modal = document.getElementById("uploadModal");
         var btn = document.getElementById("uploadLink");

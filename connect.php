@@ -15,7 +15,7 @@
                 <li><a href="Homepage.html">Home</a></li>
                 <li><a href="showcase.html">Showcase</a></li>
                 <!--<li><a href="connect.html">Connect</a></li>-->
-                <li><a href="contacts.html">Contact Us</a></li>
+                <li><a href="contacts.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>

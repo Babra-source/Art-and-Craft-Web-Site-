@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Assuming you've already established a connection to the database
 include('../db/config.php'); // Replace with your actual DB connection code
 

@@ -9,9 +9,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        body{
-            background-color: lightgrey;
-        }
         .card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -50,8 +47,8 @@
                     <li class="nav-item"><a href="../index.html" class="nav-link text-white">Home</a></li>
                     <li class="nav-item"><a href="../view/dashboard.php" class="nav-link text-white">Dashboard</a></li>
                     <li class="nav-item"><a href="../view/reels.php" class="nav-link text-white">Arts Reels</a></li>
-                    <li class="nav-item"><a href="../view/contacts.php" class="nav-link text-white">Contacts</a></li>
-                    <li class="nav-item"><a href="../view/about_page.php" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="contacts.php" class="nav-link text-white">Contacts</a></li>
+                    <li class="nav-item"><a href="../view/about_page.php" class="nav-link text-white">About Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -90,7 +87,6 @@
         <!-- Search section remains the same -->
 
         <section>
-            <br>
             <h2 class="mb-4">Paintings</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col artwork-card" data-title="Sunset Nature" data-artist="Garo_garo" data-category="Painting">
@@ -154,8 +150,6 @@
                 <!-- Continue this pattern for all artwork cards -->
             </div>
         </section>
-        <hr>
-        <br><br>
 
         <section class="mt-5">
     <h2 class="mb-4">Sculpture</h2>
@@ -234,10 +228,7 @@
     </div>
 </section>
 <hr>
-<br><br>
-
-
-
+<br>
 <section class="mt-5">
     <h2 class="mb-4">Photography</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -278,11 +269,6 @@
         </div>
     </div>
 </section>
-<hr>
-<br>
-<br>
-
-
 
 <section class="mt-5">
     <h2 class="mb-4">Digital Art</h2>
@@ -344,10 +330,7 @@
 </section>
 <hr>
 <br>
-
-
 <section>
-    <br><br><br>
     <h2 class="mb-4">Crafts</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col artwork-card" data-title="Room Decor" data-artist="Abigail" data-category="Crafts">
@@ -423,14 +406,14 @@
         </div>
     </div>
 </section>
-        
+        <!-- Continue with other sections following the same pattern -->
     </main>
 
     <footer class="bg-dark text-white py-3 text-center">
         <p>© 2024 Art and Crafts Hub. All Rights Reserved.</p>
     </footer>
 
-    
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Initialize modal

@@ -66,19 +66,7 @@ if (isset($_GET['delete'])) {
 
 <!-- Add this right before your closing </body> tag -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<style>
-  body {
-  background-color: lightgrey;
-}
-
-</style>
 </head>
-
-
-
-
-
 <body>
   <header class="dashboard-header">
     <div class="dashboard-header-content">
@@ -94,7 +82,7 @@ if (isset($_GET['delete'])) {
               <!-- <a href="#" id="uploadLink"><img src="../assets/images/post.png" alt="home"> Upload Artwork</a> -->
           <?php endif; ?>
 
-          <li><a href="../view/login.php">Logout</a></li>
+          <li><a href="../actions/logout.php">Logout</a></li>
         </ul>
       </nav>
     </div>
@@ -209,233 +197,231 @@ if (isset($_GET['delete'])) {
 
     </main>
   <?php endif; ?>
+
   <?php if ($role == 2): // Check if the user is a regular user/artisan ?>
-  <main class="dashboard-main">
-    <section class="dashboard-welcome">
-      <h1>Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
-      <p>Explore your dashboard and manage your posts.</p>
-    </section>
+    <main class="dashboard-main">
+      <section class="dashboard-welcome">
+        <h1>Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
+        <p>Explore your dashboard and manage your posts.</p>
+      </section>
 
-    <section class="dashboard-stats">
-      <div class="stat-card">
-        <i class="fas fa-palette"></i>
-        <h3>Your Artwork Posts</h3>
-        <!-- Fetch the number of artwork posts for the current user -->
+      <section class="dashboard-stats">
+        <div class="stat-card">
+          <i class="fas fa-palette"></i>
+          <h3>Your Artwork Posts</h3>
+          <!-- Fetch the number of artwork posts for the current user -->
 
-      <p><?php echo number_format($userPosts); ?> Posts</p>
-      </div>
-    </section>
-
-    <section class="dashboard-activities">
-      <h2>Your Recent Activities</h2>
-      <ul class="activity-list">
-        <li>
-
-          <?php
-                  // Assuming $user_id contains the logged-in user's ID
-                  $user_id = $_SESSION['user_id']; // Example: Fetch from session or authentication logic
-
-                  // Fetch the top two new artworks for the current user
-                  $query = "SELECT title, art_type, created_at 
-                            FROM artwork 
-                            WHERE artist_id = ? 
-                            ORDER BY created_at DESC 
-                            LIMIT 2";
-
-                  // Prepare the SQL statement
-                  $stmt = $conn->prepare($query);
-                  $stmt->bind_param("i", $user_id); // Bind the user ID parameter
-                  $stmt->execute();
-                  $result = $stmt->get_result();
-
-                  if ($result->num_rows > 0) {
-                      while ($message = $result->fetch_assoc()) {
-                          // Set dynamic icon and title for artwork activity
-                          $icon = 'fas fa-palette';
-                          $activityTitle = 'New Posts';
-
-                          // Fetch the creation timestamp
-                          $timeAgo = $message['created_at'];
-
-                          // Display the artwork activity
-                          echo '<span class="activity-icon"><i class="fas fa-palette"></i></span>';
-                          echo '<div class="activity-details">';
-                          echo '<h3>' . $activityTitle . '</h3>';
-                          echo '<p>' . htmlspecialchars($message['title']) . '</p>';
-                          echo '<p>' . htmlspecialchars($message['art_type']) . '</p>';
-                          echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
-                          echo '</div>';
-                          echo '<br>';
-                      }
-                  } else {
-                      echo '<li>No new Posts.</li>';
-                  }
-
-                  // Close the statement
-                  $stmt->close();
-                  ?>
-
-        </li>
-        <li>
-        <?php
-
-            $user_id = $_SESSION['user_id'];
-
-            // Query to fetch the latest comments on the current user's artworks
-            $query = "SELECT c.comment_text, a.title, c.created_at 
-                      FROM comments c
-                      JOIN artwork a ON c.user_id = a.artist_id
-                      WHERE a.artist_id = ? 
-                      ORDER BY c.created_at DESC 
-                      LIMIT 2";
-
-            // Prepare the SQL statement
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("i", $user_id); // Bind the user ID parameter
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                while ($comment = $result->fetch_assoc()) {
-                    // Set the activity details dynamically
-                    $activityTitle = 'New Comment on Artwork';
-                    $feedback = htmlspecialchars($comment['comment_text']);
-                    $artworkTitle = htmlspecialchars($comment['title']);
-                    $timeAgo = $comment['created_at'];
-
-                    // Display the activity
-                    echo '<li>';
-                    echo '<span class="activity-icon"><i class="fas fa-comment"></i></span>';
-                    echo '<div class="activity-details">';
-                    echo '<h3>' . $activityTitle . '</h3>';
-                    echo '<p>Feedback on your artwork "' . $artworkTitle . '"</p>';
-                    echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
-                    echo '</div>';
-                    echo '</li>';
-                }
-            } else {
-              echo '<span class="activity-icon"><i class="fas fa-comment"></i></span>';
-              echo '<li>No new comments on your artworks.</li>';
-            }
-
-            // Close the statement
-            $stmt->close();
-            ?>
-
-        </li>
-      </ul>
-    </section>
-  </main>
-  <section class="dashboard-artwork container mt-5">
-  <h2 class="text-center mb-4">Your Artwork Posts</h2>
-  
-  <?php
-  $query = "SELECT artwork_id, title, art_type,image_path, created_at FROM artwork WHERE artist_id = ? ORDER BY created_at DESC";
-  $stmt = $conn->prepare($query);
-  $stmt->bind_param("i", $user_id);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  
-  if ($result->num_rows > 0) {
-  ?>
-    <div class="table-responsive">
-      <table class="table table-hover table-striped table-bordered">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Art Type</th>
-            <th scope="col">Image_path</th>
-            <th scope="col">Created At</th>
-            <th scope="col" class="text-center">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php while ($post = $result->fetch_assoc()): ?>
-            <tr>
-              <td><?php echo htmlspecialchars($post['title']); ?></td>
-              <td><?php echo htmlspecialchars($post['art_type']); ?></td>
-              <td>
-                    <?php 
-                    if (!empty($post['image_path'])) { 
-                      echo '<img src="' . htmlspecialchars($post['image_path']) . '" alt="' . htmlspecialchars($post['title']) . '" style="width: 50px; height: auto; border-radius: 5px;">';
-                    } else {
-                      echo '<p>No image available for this post.</p>';
-                    }
-                    ?>
-                  </td>
-              <td><?php echo htmlspecialchars($post['created_at']); ?></td>
-              <td class="text-center">
-                <button 
-                  class="btn btn-danger btn-sm" 
-                  onclick="showDeleteModal(<?php echo $post['artwork_id']; ?>, '<?php echo htmlspecialchars($post['title']); ?>')"
-                >
-                  <i class="fas fa-trash"></i> Delete
-                </button>
-              </td>
-            </tr>
-          <?php endwhile; ?>
-        </tbody>
-      </table>
-    </div>
-  <?php 
-  } else {
-    echo '<div class="alert alert-info text-center" role="alert">No artwork posts found.</div>';
-  }
-  $stmt->close();
-  ?>
-</section>
-
-<script>
-function showDeleteModal(artworkId, artworkTitle) {
-    // Create modal HTML
-    const modalHTML = `
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete the artwork "${artworkTitle}"?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <a href="?delete=${artworkId}" class="btn btn-danger">Delete</a>
-                    </div>
-                </div>
-            </div>
+        <p><?php echo number_format($userPosts); ?> Posts</p>
         </div>
-    `;
+      </section>
 
-    // Remove any existing modal
-    const existingModal = document.getElementById('deleteModal');
-    if (existingModal) {
-        existingModal.remove();
+      <section class="dashboard-activities">
+        <h2>Your Recent Activities</h2>
+        <ul class="activity-list">
+          <li>
+
+            <?php
+                    // Assuming $user_id contains the logged-in user's ID
+                    $user_id = $_SESSION['user_id']; // Example: Fetch from session or authentication logic
+
+                    // Fetch the top two new artworks for the current user
+                    $query = "SELECT title, art_type, created_at 
+                              FROM artwork 
+                              WHERE artist_id = ? 
+                              ORDER BY created_at DESC 
+                              LIMIT 2";
+
+                    // Prepare the SQL statement
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("i", $user_id); // Bind the user ID parameter
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if ($result->num_rows > 0) {
+                        while ($message = $result->fetch_assoc()) {
+                            // Set dynamic icon and title for artwork activity
+                            $icon = 'fas fa-palette';
+                            $activityTitle = 'New Posts';
+
+                            // Fetch the creation timestamp
+                            $timeAgo = $message['created_at'];
+
+                            // Display the artwork activity
+                            echo '<span class="activity-icon"><i class="fas fa-palette"></i></span>';
+                            echo '<div class="activity-details">';
+                            echo '<h3>' . $activityTitle . '</h3>';
+                            echo '<p>' . htmlspecialchars($message['title']) . '</p>';
+                            echo '<p>' . htmlspecialchars($message['art_type']) . '</p>';
+                            echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
+                            echo '</div>';
+                            echo '<br>';
+                        }
+                    } else {
+                        echo '<li>No new Posts.</li>';
+                    }
+
+                    // Close the statement
+                    $stmt->close();
+                    ?>
+
+          </li>
+          <li>
+          <?php
+
+              $user_id = $_SESSION['user_id'];
+
+              // Query to fetch the latest comments on the current user's artworks
+              $query = "SELECT c.comment_text, a.title, c.created_at 
+                        FROM group_comments c
+                        JOIN artwork a ON c.user_id = a.artist_id
+                        WHERE a.artist_id = ? 
+                        ORDER BY c.created_at DESC 
+                        LIMIT 2";
+
+              // Prepare the SQL statement
+              $stmt = $conn->prepare($query);
+              $stmt->bind_param("i", $user_id); // Bind the user ID parameter
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              if ($result->num_rows > 0) {
+                  while ($comment = $result->fetch_assoc()) {
+                      // Set the activity details dynamically
+                      $activityTitle = 'New Comment on Artwork';
+                      $feedback = htmlspecialchars($comment['comment_text']);
+                      $artworkTitle = htmlspecialchars($comment['title']);
+                      $timeAgo = $comment['created_at'];
+                    
+                      // Display the activity
+                      echo '<li>';
+                      echo '<span class="activity-icon"><i class="fas fa-comment"></i></span>';
+                      echo '<div class="activity-details">';
+                      echo '<h3>' . $activityTitle . '</h3>';
+                      echo '<p>Feedback on your artwork "' . $artworkTitle . '"</p>';
+                      echo '<p class="activity-timestamp">' . $timeAgo . '</p>';
+                      echo '</div>';
+                      echo '</li>';
+                  }
+              } else {
+                echo '<span class="activity-icon"><i class="fas fa-comment"></i></span>';
+                echo '<li>No new comments on your artworks.</li>';
+              }
+
+              // Close the statement
+              $stmt->close();
+              ?>
+
+          </li>
+        </ul>
+      </section>
+    </main>
+    <section class="dashboard-artwork container mt-5">
+    <h2 class="text-center mb-4">Your Artwork Posts</h2>
+    
+    <?php
+    $query = "SELECT artwork_id, title, art_type,image_path, created_at FROM artwork WHERE artist_id = ? ORDER BY created_at DESC";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+    ?>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Art Type</th>
+              <th scope="col">Image_path</th>
+              <th scope="col">Created At</th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php while ($post = $result->fetch_assoc()): ?>
+              <tr>
+                <td><?php echo htmlspecialchars($post['title']); ?></td>
+                <td><?php echo htmlspecialchars($post['art_type']); ?></td>
+                <td>
+                      <?php 
+                      if (!empty($post['image_path'])) { 
+                        echo '<img src="' . htmlspecialchars($post['image_path']) . '" alt="' . htmlspecialchars($post['title']) . '" style="width: 50px; height: auto; border-radius: 5px;">';
+                      } else {
+                        echo '<p>No image available for this post.</p>';
+                      }
+                      ?>
+                    </td>
+                <td><?php echo htmlspecialchars($post['created_at']); ?></td>
+                <td class="text-center">
+                  <button 
+                    class="btn btn-danger btn-sm" 
+                    onclick="showDeleteModal(<?php echo $post['artwork_id']; ?>, '<?php echo htmlspecialchars($post['title']); ?>')"
+                  >
+                    <i class="fas fa-trash"></i> Delete
+                  </button>
+                </td>
+              </tr>
+            <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+    <?php 
+    } else {
+      echo '<div class="alert alert-info text-center" role="alert">No artwork posts found.</div>';
     }
-
-    // Add the new modal to the document
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    // Initialize and show the modal
-    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
-    modal.show();
-
-    // Clean up the modal when it's hidden
-    document.getElementById('deleteModal').addEventListener('hidden.bs.modal', function () {
-        this.remove();
-    });
-}
-</script>
-
-
-</style>
+    $stmt->close();
+    ?>
+  </section>
 <?php endif; ?>
 
   <footer class="dashboard-footer">
     <p>&copy; 2023 The Arts and Crafts Hub. All rights reserved.</p>
   </footer>
+  <script>
+    function showDeleteModal(artworkId, artworkTitle) {
+        // Create modal HTML
+        const modalHTML = `
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete the artwork "${artworkTitle}"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <a href="?delete=${artworkId}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Remove any existing modal
+        const existingModal = document.getElementById('deleteModal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        // Add the new modal to the document
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        // Initialize and show the modal
+        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        modal.show();
+
+        // Clean up the modal when it's hidden
+        document.getElementById('deleteModal').addEventListener('hidden.bs.modal', function () {
+            this.remove();
+        });
+    }
+  </script>
 </body>
 </html>
 <?
+
 

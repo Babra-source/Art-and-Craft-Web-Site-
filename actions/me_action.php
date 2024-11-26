@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Start the session
 session_start();
 
@@ -37,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['comment'])) {
 
         // Prepare an SQL statement to insert the comment into the database
         $stmt = $conn->prepare("INSERT INTO group_comments (user_id, comment_text, artwork) VALUES (?, ?, ?)");
-        $stmt->bind_param("isi", $user_id, $comment, $art);
+        $stmt->bind_param("ssi", $user_id, $comment, $art);
 
         // Execute the query
         if ($stmt->execute()) {

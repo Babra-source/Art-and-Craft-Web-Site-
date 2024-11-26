@@ -1,6 +1,11 @@
 <?php
 include '../db/config.php';  // Include database configuration
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture the form data and remove extra spaces
     $name = mysqli_real_escape_string($conn, trim($_POST['name']));

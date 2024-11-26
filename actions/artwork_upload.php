@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if there were any file upload errors
     if ($artworkError === 0) {
         // Specify the directory to store the uploaded file
-        $uploadDir = '../assets/uploads';
+        $uploadDir = '../../uploads/';
         $artworkPath = $uploadDir . basename($artworkName);
 
         // Move the uploaded file to the target directory

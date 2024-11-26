@@ -7,25 +7,9 @@ $sql = "SELECT * FROM artwork ORDER BY created_at DESC"; // Order by 'created_at
 $result = $conn->query($sql);
 
 
-// Assuming a database connection is established
-    // // Fetch top 5 comments for each artwork (change the query as per your requirements)
-    // $artwork_id = $artwork['artwork_id'];  // Use the actual artwork ID variable
-    // $comment_query = "SELECT * FROM comments WHERE artwork_id = $artwork_id ORDER BY created_at DESC LIMIT 5";
-    // $comments_result = $conn->query($comment_query);
-    // $comments = [];
-
-    // if ($comments_result->num_rows > 0) {
-    //     while ($row = $comments_result->fetch_assoc()) {
-    //         $comments[] = $row;
-    //     }
-    // }
-
 
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -95,8 +79,9 @@ $result = $conn->query($sql);
                         <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($title); ?>">
                     </div>
                     <p class="art-description">
-                     Description :   <?php echo htmlspecialchars($description); ?>
+                     Description :   <?php echo htmlspecialchars($description); ?>    
                     </p>
+
                     <hr style="border: 1px solid black;">
                     
 

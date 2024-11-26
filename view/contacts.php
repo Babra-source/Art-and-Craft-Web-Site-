@@ -6,17 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arts and Crafts | Contacts</title>
     <link rel="stylesheet" href="../assets/css/contacts.css">
-
-    <style>
-        body {
-            background: lightgrey;
-        }
-    </style>
-
 </head>
-
-
-
 <body>
     <header>
         <h1>Contact Us</h1>

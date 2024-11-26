@@ -370,10 +370,20 @@ a {
 
 
 
-
-
-
-
+.art-description {
+    font-family: "Georgia", serif; /* Artistic font */
+    font-size: 18px; /* Adjust font size */
+    line-height: 1.8; /* Comfortable line spacing */
+    color: #333; /* Neutral dark text */
+    background: linear-gradient(to bottom, #c0bebe, #f5f5f5); /* Subtle gradient background */
+    padding: 10px; /* Space around the text */
+    width :300px;
+    max-width: 600px; /* Limit the width for readability */
+    border: 1px solid #ddd; /* Subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+    border-radius: 8px; /* Rounded corners */
+    text-align: left; /* Align text for a clean look */
+}
 
 
 

@@ -47,25 +47,7 @@ document.querySelectorAll('.comment-button').forEach(button => {
     });
 });
 
-       
-       
-       
-    //    // Attach click event listener to the comment button
-    //    document.querySelectorAll('.comment-button').forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         const artworkId = button.getAttribute('data-artwork-id');
-    //         const commentSection = document.getElementById(`comment-section-${artworkId}`);
-            
-    //         // Toggle the visibility of the comment section
-    //         if (commentSection.style.display === 'none' || commentSection.style.display === '') {
-    //             commentSection.style.display = 'block';
 
-
-    //         } else {
-    //             commentSection.style.display = 'none';
-    //         }
-    //     });
-    // });
     // Attach event listener to all Post buttons
     document.querySelectorAll('.comment-submit').forEach(button => {
         button.addEventListener('click', () => {
@@ -85,6 +67,7 @@ document.querySelectorAll('.comment-button').forEach(button => {
             formData.append('artwork_id', artworkId);
             formData.append('comment', commentText);
     
+            
             // Send AJAX request to add_comment_action.php
             fetch('../actions/me_action.php', {
                 method: 'POST',
@@ -115,7 +98,7 @@ document.querySelectorAll('.comment-button').forEach(button => {
                 }
             })
             .catch(error => {
-                console.error('Error adding comment:', error);
+                console.log('Error adding comment:', error);
                 alert('Failed to add the comment. Please try again.');
             });
         });

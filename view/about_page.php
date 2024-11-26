@@ -7,17 +7,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <style>
-        body {
-            background: lightgrey;
-        }
-    </style>
 </head>
-
-
 <body>
     <header class="header">
-        <nav class="navbar  bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a href="../index.html" class="navbar-brand">The Arts and Crafts Hub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +58,7 @@
                             </p>
                         </div>
                         <div class="team-member">
-                            <img src="../assets/images/lovette.jpg" alt="Lovette Philips" class="img-fluid rounded-circle mb-3" style="width: 170px;" height="90px">
+                            <img src="../assets/images/lovette.jpg" alt="Lovette Philips" class="img-fluid rounded-circle mb-3" style="width: 150px;">
                             <h3>Lovette Philips</h3>
                             <p><strong>Role:</strong> Community Builder</p>
                             <p>
